@@ -17,7 +17,7 @@ const Portfolio = () => {
 
   const traditionalProjects = [
     {
-      title: "Financial Product Innovation",
+      title: "Credit Builder for Renters",
       company: "ResMan Software",
       description: "I built a new online financial tool for apartment residents that allowed them to improve their credit score by paying rent on time. This innovation simplified processes for residents and generated significant new revenue for the company, achieved by collaborating closely with outside partners, designers, and data experts.",
       results: [
@@ -30,7 +30,7 @@ const Portfolio = () => {
       category: "PropTech"
     },
     {
-      title: "Time Tracking & Team Efficiency",
+      title: "Integrated Time Tracking for Creative Teams",
       company: "Lytho",
       description: "Drove the development of a critical time-tracking feature after data revealed workflow uncertainty was a primary driver of user churn. I led the initiative from concept to launch, delivering a solution that gave managers actionable data on team workloads and project efficiency.",
       results: [
@@ -43,7 +43,7 @@ const Portfolio = () => {
       category: "B2B SaaS"
     },
     {
-      title: "Embedded Insurance Platform",
+      title: "Launching a New Renters Insurance Product",
       company: "ResMan",
       description: "Orchestrated the integration of a white-labeled insurance solution directly into the ResMan platform. This initiative streamlined the process for residents to acquire renters insurance and created a significant new revenue stream for property management companies.",
       results: [
@@ -56,7 +56,7 @@ const Portfolio = () => {
       category: "PropTech"
     },
     {
-      title: "Mobile App Platform Launch",
+      title: "Expanding from Web to Native Mobile",
       company: "Legal Zoom",
       description: "Led the expansion from web to mobile, launching a new native app for both iOS and Android to meet customer demand. I worked with mobile developers and designers to replicate the core web experience, prioritizing features based on analytics and customer interviews to boost retention and attract new users.",
       results: [

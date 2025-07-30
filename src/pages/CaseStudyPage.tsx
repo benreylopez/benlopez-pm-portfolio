@@ -20,7 +20,7 @@ const CaseStudyPage = () => {
   const projectData = {
     'financial-product-innovation': {
       type: 'traditional',
-      title: "Financial Product Innovation",
+      title: "Credit Builder for Renters",
       company: "ResMan Software",
       timeline: "2023",
       role: "Senior Product Manager",
@@ -145,7 +145,7 @@ const CaseStudyPage = () => {
     },
     'time-tracking-team-efficiency': {
       type: 'traditional',
-      title: "Time Tracking & Team Efficiency",
+      title: "Integrated Time Tracking for Creative Teams",
       company: "Lytho",
       timeline: "2023",
       role: "Senior Product Manager",
@@ -278,7 +278,7 @@ const CaseStudyPage = () => {
     },
     'embedded-insurance-platform': {
       type: 'traditional',
-      title: "Embedded Insurance Platform",
+      title: "Launching a New Renters Insurance Product",
       company: "ResMan",
       timeline: "2022 - 2023",
       role: "Product Manager",
@@ -403,7 +403,7 @@ const CaseStudyPage = () => {
     },
     'mobile-app-platform-launch': {
       type: 'traditional',
-      title: "Mobile App Platform Launch",
+      title: "Expanding from Web to Native Mobile",
       company: "Legal Zoom",
       timeline: "2022",
       role: "Product Manager",
