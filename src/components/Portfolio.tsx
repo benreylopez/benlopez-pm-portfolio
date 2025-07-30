@@ -134,10 +134,10 @@ const Portfolio = () => {
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white/80 backdrop-blur-sm rounded-lg p-1 shadow-lg border border-gray-200">
+          <div className="bg-white/80 backdrop-blur-sm rounded-lg p-2 shadow-lg border border-gray-200 flex flex-col sm:flex-row gap-2">
             <button
               onClick={() => setActiveTab('traditional')}
-              className={`px-6 py-3 rounded-md font-semibold transition-all duration-300 ${
+              className={`px-4 sm:px-6 py-3 rounded-md font-semibold transition-all duration-300 ${
                 activeTab === 'traditional'
                   ? 'bg-gradient-to-r from-teal-500 to-cyan-600 text-white shadow-lg'
                   : 'text-slate-600 hover:text-slate-800'
@@ -147,7 +147,7 @@ const Portfolio = () => {
             </button>
             <button
               onClick={() => setActiveTab('ai')}
-              className={`px-6 py-3 rounded-md font-semibold transition-all duration-300 ${
+              className={`px-4 sm:px-6 py-3 rounded-md font-semibold transition-all duration-300 ${
                 activeTab === 'ai'
                   ? 'bg-gradient-to-r from-teal-500 to-cyan-600 text-white shadow-lg'
                   : 'text-slate-600 hover:text-slate-800'

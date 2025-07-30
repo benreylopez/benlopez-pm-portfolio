@@ -106,7 +106,7 @@ const About = () => {
                   </div>
                   
                   {/* Hover Description */}
-                  <div className="absolute inset-0 bg-teal-600/95 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3 sm:p-4">
+                  <div className="absolute inset-0 bg-teal-600/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3 sm:p-4">
                     <p className="text-white text-xs sm:text-sm text-center leading-relaxed">
                       {photo.description}
                     </p>
@@ -141,7 +141,7 @@ const About = () => {
                     </div>
                     
                     {/* Hover Description */}
-                    <div className="absolute inset-0 bg-teal-600/95 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3 sm:p-4">
+                    <div className="absolute inset-0 bg-teal-600/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3 sm:p-4">
                       <p className="text-white text-xs sm:text-sm text-center leading-relaxed">
                         {photo.description}
                       </p>
