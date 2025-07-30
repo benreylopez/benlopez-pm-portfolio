@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Target, Users, TrendingUp, UserCheck, Camera, Heart, Mountain, Trophy, Globe } from 'lucide-react';
 
 const About = () => {
+  const [activePhotoId, setActivePhotoId] = useState<number | null>(null);
+
   const stats = [
     { icon: Target, label: 'Products Launched', value: '25+' },
     { icon: Users, label: 'Users Impacted', value: '500K+' },
@@ -47,6 +49,10 @@ const About = () => {
     }
   ];
 
+  const handlePhotoTap = (photoId: number) => {
+    setActivePhotoId(activePhotoId === photoId ? null : photoId);
+  };
+
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,6 +90,7 @@ const About = () => {
               {personalPhotos.slice(0, 3).map((photo) => (
                 <div
                   key={photo.id}
+                  onClick={() => handlePhotoTap(photo.id)}
                   className="aspect-square rounded-xl overflow-hidden group cursor-pointer relative shadow-md hover:shadow-xl transition-all duration-300 bg-gray-100"
                 >
                   <img 
@@ -98,15 +105,20 @@ const About = () => {
                   />
                   
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                      <div className="font-semibold text-xs sm:text-sm mb-1">{photo.title}</div>
+                      <div className="font-semibold text-xs sm:text-sm mb-1 flex items-center justify-between">
+                        <span>{photo.title}</span>
+                        <span className="text-xs opacity-75 lg:hidden">Tap for more</span>
+                      </div>
                       <div className="text-xs text-gray-200">{photo.subtitle}</div>
                     </div>
                   </div>
                   
                   {/* Hover Description */}
-                  <div className="absolute inset-0 bg-teal-600/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3 sm:p-4">
+                  <div className={`absolute inset-0 bg-teal-600/95 transition-opacity duration-300 flex items-center justify-center p-3 sm:p-4 ${
+                    activePhotoId === photo.id ? 'opacity-100' : 'opacity-0 lg:group-hover:opacity-100'
+                  }`}>
                     <p className="text-white text-xs sm:text-sm text-center leading-relaxed">
                       {photo.description}
                     </p>
@@ -119,6 +131,7 @@ const About = () => {
                 {personalPhotos.slice(3, 5).map((photo) => (
                   <div
                     key={photo.id}
+                    onClick={() => handlePhotoTap(photo.id)}
                     className="aspect-square rounded-xl overflow-hidden group cursor-pointer relative shadow-md hover:shadow-xl transition-all duration-300"
                   >
                     <img 
@@ -133,15 +146,20 @@ const About = () => {
                     />
                     
                     {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <div className="font-semibold text-xs sm:text-sm mb-1">{photo.title}</div>
+                        <div className="font-semibold text-xs sm:text-sm mb-1 flex items-center justify-between">
+                          <span>{photo.title}</span>
+                          <span className="text-xs opacity-75 lg:hidden">Tap for more</span>
+                        </div>
                         <div className="text-xs text-gray-200">{photo.subtitle}</div>
                       </div>
                     </div>
                     
                     {/* Hover Description */}
-                    <div className="absolute inset-0 bg-teal-600/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3 sm:p-4">
+                    <div className={`absolute inset-0 bg-teal-600/95 transition-opacity duration-300 flex items-center justify-center p-3 sm:p-4 ${
+                      activePhotoId === photo.id ? 'opacity-100' : 'opacity-0 lg:group-hover:opacity-100'
+                    }`}>
                       <p className="text-white text-xs sm:text-sm text-center leading-relaxed">
                         {photo.description}
                       </p>
