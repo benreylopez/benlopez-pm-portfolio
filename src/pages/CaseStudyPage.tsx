@@ -839,19 +839,19 @@ const CaseStudyPage = () => {
           <div className="grid lg:grid-cols-3 gap-12 items-start">
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-4 mb-6">
-                <div className="text-5xl">{project.image || '🚀'}</div>
+                <div className="text-4xl sm:text-5xl">{project.image || '🚀'}</div>
                 <div>
-                  <h1 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-2">
+                  <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-2">
                     {project.title}
                   </h1>
-                  <div className="flex items-center space-x-4 text-slate-600">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-slate-600 space-y-1 sm:space-y-0">
                     <span className="flex items-center space-x-1">
                       <Calendar size={16} />
-                      <span>{project.timeline}</span>
+                      <span className="text-sm sm:text-base">{project.timeline}</span>
                     </span>
-                    {project.company && <span>at {project.company}</span>}
+                    {project.company && <span className="text-sm sm:text-base">at {project.company}</span>}
                     {project.status && (
-                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(project.status)}`}>
+                      <span className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium ${getStatusColor(project.status)}`}>
                         {project.status}
                       </span>
                     )}
@@ -859,21 +859,21 @@ const CaseStudyPage = () => {
                 </div>
               </div>
               
-              <p className="text-xl text-slate-600 leading-relaxed mb-8">
+              <p className="text-base sm:text-xl text-slate-600 leading-relaxed mb-8">
                 {project.overview}
               </p>
 
               {/* Quick Actions */}
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                 <button
                   onClick={() => scrollToSection('challenge')}
-                  className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-700 transition-all duration-300"
+                  className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-700 transition-all duration-300 text-sm sm:text-base"
                 >
                   View Challenge
                 </button>
                 <button
                   onClick={() => scrollToSection('results')}
-                  className="border-2 border-gray-300 hover:border-teal-500 text-gray-600 hover:text-teal-700 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-50"
+                  className="border-2 border-gray-300 hover:border-teal-500 text-gray-600 hover:text-teal-700 px-4 sm:px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-50 text-sm sm:text-base"
                 >
                   See Results
                 </button>
@@ -888,43 +888,43 @@ const CaseStudyPage = () => {
 
             {/* Project Details Card */}
             <div className="lg:col-span-1">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-gray-200 sticky top-24">
-                <h3 className="text-lg font-semibold text-slate-800 mb-4">Project Details</h3>
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-4 sm:p-6 border border-gray-200 lg:sticky lg:top-24">
+                <h3 className="text-base sm:text-lg font-semibold text-slate-800 mb-4">Project Details</h3>
                 
                 <div className="space-y-4">
                   <div>
-                    <div className="text-sm text-slate-500 mb-1">Role</div>
-                    <div className="font-medium text-slate-800">{project.role}</div>
+                    <div className="text-xs sm:text-sm text-slate-500 mb-1">Role</div>
+                    <div className="text-sm sm:text-base font-medium text-slate-800">{project.role}</div>
                   </div>
                   
                   {project.duration && (
                     <div>
-                      <div className="text-sm text-slate-500 mb-1">Duration</div>
-                      <div className="font-medium text-slate-800">{project.duration}</div>
+                      <div className="text-xs sm:text-sm text-slate-500 mb-1">Duration</div>
+                      <div className="text-sm sm:text-base font-medium text-slate-800">{project.duration}</div>
                     </div>
                   )}
                   
                   <div>
-                    <div className="text-sm text-slate-500 mb-1">Team Size</div>
-                    <div className="font-medium text-slate-800">{project.team}</div>
+                    <div className="text-xs sm:text-sm text-slate-500 mb-1">Team Size</div>
+                    <div className="text-sm sm:text-base font-medium text-slate-800">{project.team}</div>
                   </div>
 
                   {project.category && (
                     <div>
-                      <div className="text-sm text-slate-500 mb-1">Category</div>
-                      <div className="font-medium text-slate-800">{project.category}</div>
+                      <div className="text-xs sm:text-sm text-slate-500 mb-1">Category</div>
+                      <div className="text-sm sm:text-base font-medium text-slate-800">{project.category}</div>
                     </div>
                   )}
                 </div>
 
                 {/* Technologies */}
                 <div className="mt-6">
-                  <div className="text-sm text-slate-500 mb-2">Technologies</div>
+                  <div className="text-xs sm:text-sm text-slate-500 mb-2">Technologies</div>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-gray-300"
+                        className="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium border border-gray-300"
                       >
                         {tech}
                       </span>

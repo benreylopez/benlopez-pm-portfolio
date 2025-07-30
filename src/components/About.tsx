@@ -60,13 +60,13 @@ const About = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
           {stats.map((stat, index) => (
             <div key={index} className="text-center group">
-              <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl mb-4 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
-                <stat.icon className="w-8 h-8 text-teal-600 mx-auto mb-2" />
-                <div className="text-3xl font-bold text-slate-800 mb-1">{stat.value}</div>
-                <div className="text-slate-600 font-medium">{stat.label}</div>
+              <div className="bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-2xl mb-4 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
+                <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-teal-600 mx-auto mb-2" />
+                <div className="text-2xl sm:text-3xl font-bold text-slate-800 mb-1">{stat.value}</div>
+                <div className="text-sm sm:text-base text-slate-600 font-medium">{stat.label}</div>
               </div>
             </div>
           ))}
@@ -74,17 +74,17 @@ const About = () => {
 
         {/* Personal Photo Gallery - Centered */}
         <div className="max-w-5xl mx-auto">
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-gray-200">
-            <h3 className="text-2xl font-bold text-slate-800 mb-8 text-center">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-4 sm:p-8 border border-gray-200">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-6 sm:mb-8 text-center">
               Behind the Scenes
             </h3>
             
             {/* Photo Grid - Responsive layout for 5 photos */}
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
               {personalPhotos.slice(0, 3).map((photo) => (
                 <div
                   key={photo.id}
-                  className="aspect-square rounded-xl overflow-hidden group cursor-pointer relative shadow-md hover:shadow-xl transition-all duration-300"
+                  className="aspect-square rounded-xl overflow-hidden group cursor-pointer relative shadow-md hover:shadow-xl transition-all duration-300 bg-gray-100"
                 >
                   <img 
                     src={photo.src} 
@@ -98,16 +98,16 @@ const About = () => {
                   />
                   
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                      <div className="font-semibold text-sm mb-1">{photo.title}</div>
+                      <div className="font-semibold text-xs sm:text-sm mb-1">{photo.title}</div>
                       <div className="text-xs text-gray-200">{photo.subtitle}</div>
                     </div>
                   </div>
                   
                   {/* Hover Description */}
-                  <div className="absolute inset-0 bg-teal-600/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-                    <p className="text-white text-sm text-center leading-relaxed">
+                  <div className="absolute inset-0 bg-teal-600/95 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3 sm:p-4">
+                    <p className="text-white text-xs sm:text-sm text-center leading-relaxed">
                       {photo.description}
                     </p>
                   </div>
@@ -115,7 +115,7 @@ const About = () => {
               ))}
               
               {/* Bottom row - centered 2 photos */}
-              <div className="col-span-2 lg:col-span-3 grid grid-cols-2 gap-6 max-w-2xl mx-auto">
+              <div className="col-span-1 sm:col-span-2 lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto">
                 {personalPhotos.slice(3, 5).map((photo) => (
                   <div
                     key={photo.id}
@@ -133,16 +133,16 @@ const About = () => {
                     />
                     
                     {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <div className="font-semibold text-sm mb-1">{photo.title}</div>
+                        <div className="font-semibold text-xs sm:text-sm mb-1">{photo.title}</div>
                         <div className="text-xs text-gray-200">{photo.subtitle}</div>
                       </div>
                     </div>
                     
                     {/* Hover Description */}
-                    <div className="absolute inset-0 bg-teal-600/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-                      <p className="text-white text-sm text-center leading-relaxed">
+                    <div className="absolute inset-0 bg-teal-600/95 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3 sm:p-4">
+                      <p className="text-white text-xs sm:text-sm text-center leading-relaxed">
                         {photo.description}
                       </p>
                     </div>
@@ -153,7 +153,7 @@ const About = () => {
             
             {/* Quote */}
             <div className="text-center">
-              <p className="text-lg text-slate-600 italic">
+              <p className="text-base sm:text-lg text-slate-600 italic">
                 "The most effective way to do it, is to do it." - Amelia Earhart
               </p>
             </div>

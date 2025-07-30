@@ -160,29 +160,29 @@ const Portfolio = () => {
 
         {/* Traditional Projects */}
         {activeTab === 'traditional' && (
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
             {traditionalProjects.map((project, index) => (
               <div
                 key={index}
                 className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-200"
               >
                 {/* Project Header */}
-                <div className="bg-gradient-to-r from-teal-500 to-cyan-600 p-6 text-white">
+                <div className="bg-gradient-to-r from-teal-500 to-cyan-600 p-4 sm:p-6 text-white">
                   <div className="flex items-start justify-between mb-4">
-                    <div className="text-4xl mb-2">{project.image}</div>
-                    <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="text-3xl sm:text-4xl mb-2">{project.image}</div>
+                    <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
                       {project.category}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2">{project.title}</h3>
                   <div className="flex items-center space-x-4 text-teal-100">
-                    <span>at {project.company}</span>
+                    <span className="text-sm sm:text-base">at {project.company}</span>
                   </div>
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
-                  <p className="text-slate-600 mb-6 leading-relaxed">
+                <div className="p-4 sm:p-6">
+                  <p className="text-sm sm:text-base text-slate-600 mb-6 leading-relaxed">
                     {project.description}
                   </p>
 
@@ -220,7 +220,7 @@ const Portfolio = () => {
                   {/* Action Button */}
                   <button 
                     onClick={() => handleViewCaseStudy(project.title)}
-                    className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-700 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:scale-105 shadow-lg"
+                    className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white py-3 px-4 sm:px-6 rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-700 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:scale-105 shadow-lg text-sm sm:text-base"
                   >
                     <span>View Case Study</span>
                     <ExternalLink size={18} />
@@ -233,26 +233,26 @@ const Portfolio = () => {
 
         {/* AI Projects */}
         {activeTab === 'ai' && (
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
             {aiProjects.map((project, index) => (
               <div
                 key={index}
                 className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
               >
                 {/* Project Header */}
-                <div className={`bg-gradient-to-r ${project.color} p-6 text-white`}>
+                <div className={`bg-gradient-to-r ${project.color} p-4 sm:p-6 text-white`}>
                   <div className="flex items-start justify-between mb-4">
-                    <project.icon className="w-10 h-10" />
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(project.status)} text-slate-800 bg-white`}>
+                    <project.icon className="w-8 h-8 sm:w-10 sm:h-10" />
+                    <span className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium ${getStatusColor(project.status)} text-slate-800 bg-white`}>
                       {project.status}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2">{project.title}</h3>
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
-                  <p className="text-slate-600 mb-6 leading-relaxed">
+                <div className="p-4 sm:p-6">
+                  <p className="text-sm sm:text-base text-slate-600 mb-6 leading-relaxed">
                     {project.description}
                   </p>
 
@@ -290,7 +290,7 @@ const Portfolio = () => {
                   {/* Action Button */}
                   <button 
                     onClick={() => handleViewCaseStudy(project.title)}
-                    className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-md"
+                    className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-md text-sm sm:text-base"
                   >
                     <span>View Case Study</span>
                     <ExternalLink size={18} />

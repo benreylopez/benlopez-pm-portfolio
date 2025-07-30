@@ -47,22 +47,25 @@ const JourneyDiagram: React.FC<JourneyDiagramProps> = ({
 
           {/* Process Flow */}
           <div className="mb-6">
-            <div className="flex flex-wrap items-center justify-center space-x-2 space-y-2">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-3 sm:gap-2">
               {beforeSteps.map((step, index) => (
                 <React.Fragment key={index}>
-                  <div className="flex flex-col items-center space-y-2 min-w-0">
-                    <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white font-bold">
+                  <div className="flex flex-col items-center space-y-2 min-w-0 flex-shrink-0">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base">
                       {step.step}
                     </div>
                     <div className="text-center">
                       <step.icon className="w-6 h-6 text-red-600 mx-auto mb-1" />
-                      <div className="text-xs font-medium text-slate-800 max-w-20 leading-tight">
+                      <div className="text-xs font-medium text-slate-800 max-w-24 sm:max-w-32 leading-tight">
                         {step.title}
                       </div>
                     </div>
                   </div>
                   {index < beforeSteps.length - 1 && (
-                    <ArrowRight className="w-5 h-5 text-red-400 hidden lg:block" />
+                    <>
+                      <ArrowRight className="w-5 h-5 text-red-400 hidden sm:block lg:block" />
+                      <ArrowDown className="w-5 h-5 text-red-400 block sm:hidden" />
+                    </>
                   )}
                 </React.Fragment>
               ))}
@@ -105,22 +108,25 @@ const JourneyDiagram: React.FC<JourneyDiagramProps> = ({
 
           {/* Process Flow */}
           <div className="mb-6">
-            <div className="flex flex-wrap items-center justify-center space-x-2 space-y-2">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-3 sm:gap-2">
               {afterSteps.map((step, index) => (
                 <React.Fragment key={index}>
-                  <div className="flex flex-col items-center space-y-2 min-w-0">
-                    <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold">
+                  <div className="flex flex-col items-center space-y-2 min-w-0 flex-shrink-0">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base">
                       {step.step}
                     </div>
                     <div className="text-center">
                       <step.icon className="w-6 h-6 text-teal-600 mx-auto mb-1" />
-                      <div className="text-xs font-medium text-slate-800 max-w-20 leading-tight">
+                      <div className="text-xs font-medium text-slate-800 max-w-24 sm:max-w-32 leading-tight">
                         {step.title}
                       </div>
                     </div>
                   </div>
                   {index < afterSteps.length - 1 && (
-                    <ArrowRight className="w-5 h-5 text-teal-400 hidden lg:block" />
+                    <>
+                      <ArrowRight className="w-5 h-5 text-teal-400 hidden sm:block lg:block" />
+                      <ArrowDown className="w-5 h-5 text-teal-400 block sm:hidden" />
+                    </>
                   )}
                 </React.Fragment>
               ))}
