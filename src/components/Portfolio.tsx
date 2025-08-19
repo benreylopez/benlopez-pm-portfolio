@@ -104,12 +104,12 @@ const Portfolio = () => {
   const nelMarketingProject = {
     title: "AI Executive Team Dashboard",
     status: "Delivered",
-    description: "Designed and conceptualized a sophisticated AI executive team interface for Nel Marketing, featuring four specialized AI roles working together in a unified dashboard. The system integrated strategic planning, client management, audit analysis, and project coordination into a cohesive neural network-powered platform.",
+    description: "Built a comprehensive suite of four specialized AI agents for Nel Marketing: Samantha (Agency CSO) for high-level strategy and thought leadership, Hannah/Iris (Client Strategists) for dedicated account management and copywriting, Rory (Audit Expert) for new business acquisition with data-driven ROI projections, and Megan (Project Manager) for streamlined task organization and workflow optimization.",
     impact: [
-      "Designed a 4-quadrant AI executive interface with specialized roles",
-      "Created unified dashboard connecting strategy, client work, audits, and project management",
-      "Projected +25% ROI through AI-driven audit insights and optimization",
-      "Streamlined agency operations through integrated AI workflow management"
+      "Automated new business acquisition with compelling audit proposals and ROI projections",
+      "Streamlined daily client work with AI-powered strategy development and A/B tested copy",
+      "Enhanced agency marketing through AI-generated thought leadership and case studies", 
+      "Transformed chaotic task management into organized, prioritized weekly action plans"
     ],
     technologies: ["AI Interface Design", "Dashboard Development", "Neural Network Visualization", "Data Analytics"],
     icon: Bot,
