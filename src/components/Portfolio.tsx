@@ -1,19 +1,8 @@
 import React, { useState } from 'react';
-import { ExternalLink, Calendar, Users, TrendingUp, Brain, Cpu, Bot, Zap, Github, Play } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Calendar, Users, TrendingUp, Brain, Cpu, Bot, Zap, Github, Play } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState<'traditional' | 'ai'>('traditional');
-  const navigate = useNavigate();
-
-  const createSlug = (title: string) => {
-    return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-  };
-
-  const handleViewCaseStudy = (title: string) => {
-    const slug = createSlug(title);
-    navigate(`/case-study/${slug}`);
-  };
 
   const traditionalProjects = [
     {
@@ -234,13 +223,10 @@ const Portfolio = () => {
                   </div>
 
                   {/* Action Button */}
-                  <button 
-                    onClick={() => handleViewCaseStudy(project.title)}
-                    className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white py-3 px-4 sm:px-6 rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-700 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:scale-105 shadow-lg text-sm sm:text-base"
+                  <div className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white py-3 px-4 sm:px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 group-hover:scale-105 shadow-lg text-sm sm:text-base"
                   >
-                    <span>View Case Study</span>
-                    <ExternalLink size={18} />
-                  </button>
+                    <span>Project Complete</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -304,13 +290,10 @@ const Portfolio = () => {
                   </div>
 
                   {/* Action Button */}
-                  <button 
-                    onClick={() => handleViewCaseStudy(project.title)}
-                    className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-md text-sm sm:text-base"
+                  <div className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-md text-sm sm:text-base"
                   >
-                    <span>View Case Study</span>
-                    <ExternalLink size={18} />
-                  </button>
+                    <span>{project.status}</span>
+                  </div>
                 </div>
               </div>
             ))}
