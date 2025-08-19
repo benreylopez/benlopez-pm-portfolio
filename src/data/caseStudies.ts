@@ -106,4 +106,72 @@ export const caseStudies: CaseStudy[] = [
       afterEmotion: 'Confident and focused'
     }
   }
+  {
+    slug: 'credit-builder-for-renters',
+    title: 'Credit Builder for Renters',
+    company: 'ResMan Software',
+    category: 'PropTech',
+    overview: 'I built a new online financial tool for apartment residents that allowed them to improve their credit score by paying rent on time. This innovation simplified processes for residents and generated significant new revenue for the company, achieved by collaborating closely with outside partners, designers, and data experts.',
+    challenge: [
+      'Property management companies lacked value-added services to differentiate their properties and increase resident satisfaction.',
+      'Residents had limited opportunities to build credit history through their rent payments, which are typically not reported to credit bureaus.',
+      'The company needed new revenue streams beyond traditional property management fees to drive growth.',
+      'Integration with existing property management systems required seamless data flow and user experience.',
+      'Compliance and regulatory requirements for financial products created complex implementation challenges.'
+    ],
+    solution: [
+      {
+        name: 'Third-Party Credit Bureau Integration',
+        description: 'Partnered with established credit reporting agencies to ensure rent payments are accurately and consistently reported to all major credit bureaus, providing residents with legitimate credit building opportunities.'
+      },
+      {
+        name: 'Seamless Platform Integration',
+        description: 'Built the credit builder tool directly into the existing ResMan platform, ensuring residents could access the feature without leaving their familiar property management portal, reducing friction and increasing adoption.'
+      },
+      {
+        name: 'Automated Enrollment and Tracking',
+        description: 'Developed an automated system that identifies eligible residents, guides them through enrollment, and tracks their payment history to ensure consistent credit reporting without manual intervention.'
+      },
+      {
+        name: 'Revenue Sharing Model',
+        description: 'Created a sustainable business model where property management companies earn recurring revenue from resident participation, aligning incentives and encouraging promotion of the feature.'
+      }
+    ],
+    impact: [
+      'Unlocked $2M in new yearly revenue (ARR) with a credit-builder feature',
+      '80% adoption rate among eligible residents',
+      '90% increase in positive property management feedback'
+    ],
+    technologies: ['Third-Party APIs', 'Pendo (Analytics)', 'Jira'],
+    journey: {
+      beforeSteps: [
+        { step: 1, title: 'Pay Rent', icon: Calendar, description: 'Residents pay rent monthly with no credit benefit' },
+        { step: 2, title: 'Miss Opportunity', icon: AlertTriangle, description: 'Payments go unreported to credit bureaus' },
+        { step: 3, title: 'Seek Alternatives', icon: Search, description: 'Residents look for other ways to build credit' },
+        { step: 4, title: 'Limited Options', icon: Target, description: 'Few accessible credit-building tools available' }
+      ],
+      afterSteps: [
+        { step: 1, title: 'Auto-Enroll', icon: CheckCircle, description: 'Seamless enrollment in credit builder program' },
+        { step: 2, title: 'Pay Rent', icon: Calendar, description: 'Continue paying rent as normal' },
+        { step: 3, title: 'Build Credit', icon: TrendingUp, description: 'Payments automatically reported to credit bureaus' },
+        { step: 4, title: 'Track Progress', icon: Target, description: 'Monitor credit score improvements over time' }
+      ],
+      beforePainPoints: [
+        'Rent payments provided no credit building benefit',
+        'Residents struggled to find accessible credit building options',
+        'Property managers had limited value-added services to offer',
+        'No additional revenue streams from existing resident relationships',
+        'Manual processes for any credit-related services'
+      ],
+      afterBenefits: [
+        'Every rent payment now builds credit history automatically',
+        'Residents gain access to valuable financial tool at no extra cost',
+        'Property managers can promote additional value to residents',
+        'Significant new recurring revenue stream established',
+        'Fully automated system requires minimal ongoing management'
+      ],
+      beforeEmotion: 'Frustrated by missed opportunities',
+      afterEmotion: 'Empowered and financially progressive'
+    }
+  }
 ];
