@@ -105,7 +105,7 @@ export const caseStudies: CaseStudy[] = [
       beforeEmotion: 'Overwhelmed and scattered',
       afterEmotion: 'Confident and focused'
     }
-  }
+  },
   {
     slug: 'credit-builder-for-renters',
     title: 'Credit Builder for Renters',
