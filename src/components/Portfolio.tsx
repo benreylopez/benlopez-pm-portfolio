@@ -102,14 +102,14 @@ const Portfolio = () => {
   ];
 
   const nelMarketingProject = {
-    title: "AI Executive Team Dashboard",
+    title: "Marketing Agency AI Assistant Suite",
     status: "Delivered",
-    description: "Built a comprehensive suite of four specialized AI agents for Nel Marketing: Samantha (Agency CSO) for high-level strategy and thought leadership, Hannah/Iris (Client Strategists) for dedicated account management and copywriting, Rory (Audit Expert) for new business acquisition with data-driven ROI projections, and Megan (Project Manager) for streamlined task organization and workflow optimization.",
+    description: "I built four specialized AI assistants to handle different parts of running a marketing agency. Samantha acts as the strategic brain, helping with big-picture planning and creating content to attract new clients. Hannah and Iris focus on individual client accounts, developing campaigns and writing copy that gets results. Rory specializes in winning new business by analyzing prospect data and creating compelling proposals. Megan keeps everything organized by turning messy task lists into clear, prioritized action plans.",
     impact: [
-      "Automated new business acquisition with compelling audit proposals and ROI projections",
-      "Streamlined daily client work with AI-powered strategy development and A/B tested copy",
-      "Enhanced agency marketing through AI-generated thought leadership and case studies", 
-      "Transformed chaotic task management into organized, prioritized weekly action plans"
+      "Made new business development faster and more effective with automated proposals that clearly show potential ROI",
+      "Improved client results through AI-powered campaign strategies and multiple copy variations for testing",
+      "Boosted the agency's own marketing with AI-generated blog posts, case studies, and thought leadership content",
+      "Turned overwhelming to-do lists into clear, manageable weekly plans that actually get completed"
     ],
     technologies: ["AI Interface Design", "Dashboard Development", "Neural Network Visualization", "Data Analytics"],
     icon: Bot,
@@ -250,7 +250,7 @@ const Portfolio = () => {
         {/* AI Projects */}
         {activeTab === 'ai' && (
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
-            {[...aiProjects, nelMarketingProject].map((project, index) => (
+            {[nelMarketingProject, ...aiProjects].map((project, index) => (
               <div
                 key={index}
                 className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
