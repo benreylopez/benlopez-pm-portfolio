@@ -775,6 +775,132 @@ const CaseStudyPage = () => {
         beforeEmotion: "Overwhelmed, creatively blocked",
         afterEmotion: "Inspired, efficient, confident"
       }
+    },
+    'ai-executive-team-dashboard': {
+      type: 'ai',
+      title: "AI Executive Team Dashboard",
+      status: "Delivered",
+      timeline: "2024",
+      role: "AI Product Designer",
+      team: "3 people (1 UI/UX designer, 1 frontend developer, 1 PM)",
+      image: "👥",
+      overview: "Designed and conceptualized a sophisticated AI executive team interface for Nel Marketing, featuring four specialized AI roles working together in a unified dashboard. The system integrated strategic planning, client management, audit analysis, and project coordination into a cohesive neural network-powered platform.",
+      challenge: {
+        title: "The Agency Management Challenge",
+        description: "Marketing agencies struggle with coordinating multiple specialized functions - strategy, client management, auditing, and project coordination - across different team members and tools. This fragmentation leads to inefficiencies, missed opportunities, and inconsistent service delivery. Nel Marketing needed a unified system that could integrate these functions while maintaining the specialized expertise each area requires."
+      },
+      solution: {
+        title: "AI-Powered Executive Dashboard",
+        description: "I designed a comprehensive AI executive team interface featuring four specialized AI roles in a unified dashboard. The AI Chief Strategy Officer handled high-level market analysis and strategic roadmapping. The AI Client Strategist managed daily client work and campaign optimization with A/B testing capabilities. The AI Audit Expert transformed raw data into actionable insights with clear ROI projections. The AI Project Manager coordinated all activities through intelligent task prioritization and resource allocation. All four roles were connected through a central neural network hub that enabled seamless collaboration and data sharing."
+      },
+      results: {
+        title: "Design Impact & Potential",
+        metrics: [
+          {
+            metric: "Operational Efficiency",
+            before: "Fragmented Tools",
+            after: "Unified Platform",
+            improvement: "Streamlined Workflow",
+            icon: TrendingUp
+          },
+          {
+            metric: "ROI Visibility",
+            before: "Manual Reporting",
+            after: "Real-time Analytics",
+            improvement: "+25% ROI Clarity",
+            icon: Target
+          },
+          {
+            metric: "Team Coordination",
+            before: "Siloed Functions",
+            after: "Neural Network Hub",
+            improvement: "Unified Collaboration",
+            icon: Users
+          }
+        ]
+      },
+      technologies: ["AI Interface Design", "Dashboard Development", "Neural Network Visualization", "Data Analytics"],
+      learnings: {
+        title: "AI Dashboard Design Insights",
+        insights: [
+          {
+            title: "Specialized AI Roles Need Clear Distinctions",
+            description: "Each AI executive role required distinct visual language and functionality while maintaining cohesive integration. The design needed to clearly communicate each role's specialized expertise while showing how they work together as a unified system."
+          },
+          {
+            title: "Central Connectivity Enhances AI Collaboration",
+            description: "The neural network hub design was crucial for visualizing how different AI functions share data and insights. This central connection point became the key to demonstrating the platform's collaborative intelligence and unified decision-making capabilities."
+          }
+        ]
+      },
+      userJourney: {
+        beforeSteps: [
+          {
+            step: 1,
+            title: "Strategic Planning Meeting",
+            description: "Team gathers to discuss high-level strategy",
+            icon: Users
+          },
+          {
+            step: 2,
+            title: "Switch Between Tools",
+            description: "Jump between different platforms for each function",
+            icon: AlertTriangle
+          },
+          {
+            step: 3,
+            title: "Manual Data Compilation",
+            description: "Manually gather data from various sources",
+            icon: Clock
+          },
+          {
+            step: 4,
+            title: "Delayed Decision Making",
+            description: "Wait for all data to be compiled before decisions",
+            icon: Target
+          }
+        ],
+        afterSteps: [
+          {
+            step: 1,
+            title: "Access Unified Dashboard",
+            description: "Single interface with all AI executives available",
+            icon: Users
+          },
+          {
+            step: 2,
+            title: "Real-time AI Insights",
+            description: "All four AI roles provide immediate analysis",
+            icon: Bot
+          },
+          {
+            step: 3,
+            title: "Integrated Decision Support",
+            description: "Neural network connects all insights automatically",
+            icon: Zap
+          },
+          {
+            step: 4,
+            title: "Instant Strategy Execution",
+            description: "Immediate action on AI-powered recommendations",
+            icon: CheckCircle
+          }
+        ],
+        beforePainPoints: [
+          "Fragmented tools and disconnected workflows",
+          "Manual data compilation from multiple sources",
+          "Delayed decision-making due to information silos",
+          "Inconsistent service delivery across functions"
+        ],
+        afterBenefits: [
+          "Unified dashboard with specialized AI executives",
+          "Real-time data integration and analysis",
+          "Neural network-powered collaborative intelligence",
+          "Instant strategic insights and recommendations"
+        ],
+        beforeEmotion: "Overwhelmed, fragmented, reactive",
+        afterEmotion: "Empowered, coordinated, strategic"
+      }
     }
   };
 

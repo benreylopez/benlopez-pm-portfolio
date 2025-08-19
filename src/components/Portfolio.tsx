@@ -101,6 +101,22 @@ const Portfolio = () => {
     }
   ];
 
+  const nelMarketingProject = {
+    title: "AI Executive Team Dashboard",
+    status: "Delivered",
+    description: "Designed and conceptualized a sophisticated AI executive team interface for Nel Marketing, featuring four specialized AI roles working together in a unified dashboard. The system integrated strategic planning, client management, audit analysis, and project coordination into a cohesive neural network-powered platform.",
+    impact: [
+      "Designed a 4-quadrant AI executive interface with specialized roles",
+      "Created unified dashboard connecting strategy, client work, audits, and project management",
+      "Projected +25% ROI through AI-driven audit insights and optimization",
+      "Streamlined agency operations through integrated AI workflow management"
+    ],
+    technologies: ["AI Interface Design", "Dashboard Development", "Neural Network Visualization", "Data Analytics"],
+    icon: Bot,
+    color: "from-indigo-400 to-purple-500",
+    demo: false
+  };
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'In Production': return 'bg-teal-100 text-teal-800';
@@ -234,7 +250,7 @@ const Portfolio = () => {
         {/* AI Projects */}
         {activeTab === 'ai' && (
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
-            {aiProjects.map((project, index) => (
+            {[...aiProjects, nelMarketingProject].map((project, index) => (
               <div
                 key={index}
                 className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
