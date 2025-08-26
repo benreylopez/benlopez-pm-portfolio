@@ -276,7 +276,7 @@ const CaseStudyPage = () => {
         afterEmotion: "Empowered, efficient, in control"
       }
     },
-    'embedded-insurance-platform': {
+    'launching-a-new-renters-insurance-product': {
       type: 'traditional',
       title: "Launching a New Renters Insurance Product",
       company: "ResMan",
