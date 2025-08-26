@@ -401,7 +401,7 @@ const CaseStudyPage = () => {
         afterEmotion: "Relieved, protected effortlessly"
       }
     },
-    'mobile-app-platform-launch': {
+    'expanding-from-web-to-native-mobile': {
       type: 'traditional',
       title: "Expanding from Web to Native Mobile",
       company: "Legal Zoom",
