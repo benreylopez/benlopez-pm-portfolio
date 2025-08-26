@@ -800,7 +800,7 @@ const CaseStudyPage = () => {
         </div>
       </div>
     );
-  };
+  }
 
   const getStatusColor = (status?: string) => {
     if (!status) return '';
