@@ -18,7 +18,7 @@ const CaseStudyPage = () => {
 
   // Project data - would typically come from a CMS or API
   const projectData = {
-    'financial-product-innovation': {
+    'credit-builder-for-renters': {
       type: 'traditional',
       title: "Credit Builder for Renters",
       company: "ResMan Software",
@@ -143,7 +143,7 @@ const CaseStudyPage = () => {
         afterEmotion: "Empowered, building financial future"
       }
     },
-    'time-tracking-team-efficiency': {
+    'integrated-time-tracking-for-creative-teams': {
       type: 'traditional',
       title: "Integrated Time Tracking for Creative Teams",
       company: "Lytho",
