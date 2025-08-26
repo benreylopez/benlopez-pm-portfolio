@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
-import { Calendar, Users, TrendingUp, Brain, Cpu, Bot, Zap, Github, Play } from 'lucide-react';
+import { ExternalLink, Calendar, Users, TrendingUp, Brain, Cpu, Bot, Zap, Github, Play } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState<'traditional' | 'ai'>('traditional');
+  const navigate = useNavigate();
+
+  const createSlug = (title: string) => {
+    return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  };
+
+  const handleViewCaseStudy = (title: string) => {
+    const slug = createSlug(title);
+    navigate(`/case-study/${slug}`);
+  };
 
   const traditionalProjects = [
     {
@@ -89,22 +100,6 @@ const Portfolio = () => {
       demo: false
     }
   ];
-
-  const nelMarketingProject = {
-    title: "Marketing Agency AI Assistant Suite",
-    status: "Delivered",
-    description: "I built four specialized AI assistants to handle different parts of running a marketing agency. Samantha acts as the strategic brain, helping with big-picture planning and creating content to attract new clients. Hannah and Iris focus on individual client accounts, developing campaigns and writing copy that gets results. Rory specializes in winning new business by analyzing prospect data and creating compelling proposals. Megan keeps everything organized by turning messy task lists into clear, prioritized action plans.",
-    impact: [
-      "Made new business development faster and more effective with automated proposals that clearly show potential ROI",
-      "Improved client results through AI-powered campaign strategies and multiple copy variations for testing",
-      "Boosted the agency's own marketing with AI-generated blog posts, case studies, and thought leadership content",
-      "Turned overwhelming to-do lists into clear, manageable weekly plans that actually get completed"
-    ],
-    technologies: ["AI Interface Design", "Dashboard Development", "Neural Network Visualization", "Data Analytics"],
-    icon: Bot,
-    color: "from-indigo-400 to-purple-500",
-    demo: false
-  };
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -223,10 +218,13 @@ const Portfolio = () => {
                   </div>
 
                   {/* Action Button */}
-                  <div className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white py-3 px-4 sm:px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 group-hover:scale-105 shadow-lg text-sm sm:text-base"
+                  <button 
+                    onClick={() => handleViewCaseStudy(project.title)}
+                    className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white py-3 px-4 sm:px-6 rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-700 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:scale-105 shadow-lg text-sm sm:text-base"
                   >
-                    <span>Project Complete</span>
-                  </div>
+                    <span>View Case Study</span>
+                    <ExternalLink size={18} />
+                  </button>
                 </div>
               </div>
             ))}
@@ -236,7 +234,7 @@ const Portfolio = () => {
         {/* AI Projects */}
         {activeTab === 'ai' && (
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
-            {[nelMarketingProject, ...aiProjects].map((project, index) => (
+            {aiProjects.map((project, index) => (
               <div
                 key={index}
                 className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
@@ -290,10 +288,13 @@ const Portfolio = () => {
                   </div>
 
                   {/* Action Button */}
-                  <div className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-md text-sm sm:text-base"
+                  <button 
+                    onClick={() => handleViewCaseStudy(project.title)}
+                    className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-md text-sm sm:text-base"
                   >
-                    <span>{project.status}</span>
-                  </div>
+                    <span>View Case Study</span>
+                    <ExternalLink size={18} />
+                  </button>
                 </div>
               </div>
             ))}
