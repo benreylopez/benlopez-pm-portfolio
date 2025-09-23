@@ -9,12 +9,9 @@ const Hero = () => {
     }
   };
 
-  const handleResumeDownload = () => {
-    // Create a link to download the resume PDF
-    const link = document.createElement('a');
-    link.href = '/Ben-Lopez-Resume.pdf';
-    link.download = 'Ben-Lopez-Resume.pdf';
-    link.click();
+  const handleResumeView = () => {
+    // Open the resume PDF in a new tab
+    window.open('/Ben-Lopez-Resume.pdf', '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -44,11 +41,11 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-6">
               <button 
-                onClick={handleResumeDownload}
+                onClick={handleResumeView}
                 className="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg"
               >
                 <Download size={20} />
-                <span>Download Resume</span>
+                <span>View Resume</span>
               </button>
               <button 
                 onClick={scrollToAbout}
