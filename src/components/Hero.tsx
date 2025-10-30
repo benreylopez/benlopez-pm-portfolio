@@ -23,45 +23,17 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
           {/* Content */}
           <div className="text-slate-800 space-y-6">
-            <div className="space-y-4">
+            <div className="space-y-3">
               <p className="text-teal-600 font-semibold text-sm uppercase tracking-wide">Strategic Product Leader</p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-slate-800">
                 Ben Lopez
               </h1>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-700 mb-4">
-                Turning Complex Business Challenges into Revenue-Generating Products
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-700">
+                Building Revenue-Generating Products That Solve Real Problems
               </h2>
-              <p className="text-xl text-slate-600 leading-relaxed">
-                I've launched <span className="font-bold text-teal-600">25+ products</span> generating <span className="font-bold text-teal-600">$10M+ in new revenue</span> by combining design thinking with data-driven product strategy. From PropTech to LegalTech, I build products that solve real business problems while delighting users.
+              <p className="text-lg text-slate-600 leading-relaxed">
+                5+ years launching B2B SaaS products across PropTech, LegalTech, and creative software. <span className="font-bold text-teal-600">25+ products</span> shipped, <span className="font-bold text-teal-600">$10M+ in new revenue</span> generated, <span className="font-bold text-teal-600">500K+ users</span> impacted.
               </p>
-              <p className="text-lg text-slate-500 leading-relaxed">
-                My design background gives me a unique edge in creating intuitive experiences that drive adoption, retention, and measurable business outcomes.
-              </p>
-            </div>
-
-            {/* Quick Impact Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-4 pb-2">
-              <div className="text-center">
-                <div className="flex items-center justify-center mb-2">
-                  <TrendingUp className="w-5 h-5 text-teal-600" />
-                </div>
-                <div className="text-2xl font-bold text-slate-800">$10M+</div>
-                <div className="text-xs text-slate-500">Revenue Generated</div>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center mb-2">
-                  <Users className="w-5 h-5 text-teal-600" />
-                </div>
-                <div className="text-2xl font-bold text-slate-800">500K+</div>
-                <div className="text-xs text-slate-500">Users Impacted</div>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center mb-2">
-                  <Zap className="w-5 h-5 text-teal-600" />
-                </div>
-                <div className="text-2xl font-bold text-slate-800">25+</div>
-                <div className="text-xs text-slate-500">Products Launched</div>
-              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4">

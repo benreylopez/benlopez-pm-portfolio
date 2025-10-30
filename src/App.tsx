@@ -18,11 +18,11 @@ function App() {
         <Route path="/" element={
           <>
             <Hero />
-            <ProductPhilosophy />
-            <About />
-            <Testimonials />
-            <CrossFunctionalLeadership />
             <Portfolio />
+            <About />
+            <ProductPhilosophy />
+            <CrossFunctionalLeadership />
+            <Testimonials />
             <Contact />
           </>
         } />
