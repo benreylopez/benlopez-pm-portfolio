@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, Users, TrendingUp, Target, CheckCircle, AlertCircle, Lightbulb, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Calendar, Users, TrendingUp, Target, CheckCircle, AlertCircle, Lightbulb, AlertTriangle, GitBranch, XCircle, Scale } from 'lucide-react';
 import { Clock, FileSpreadsheet, MousePointer, BarChart3, Home, DollarSign, Shield, Smartphone, Bell, Bot, PenTool, Zap, MessageSquare, FileText, Star, HeartHandshake } from 'lucide-react';
 import JourneyDiagram from '../components/JourneyDiagram';
 
@@ -30,7 +30,22 @@ const CaseStudyPage = () => {
       overview: "Identified untapped revenue opportunity in PropTech by solving a real resident pain point. Led discovery, validated market demand through customer interviews, and orchestrated complex third-party integration to unlock $2M ARR while delivering genuine financial value to residents.",
       discovery: {
         title: "Market Discovery & Validation",
-        description: "Through competitive analysis, I identified that major competitors like Yardi and AppFolio were already monetizing credit-building services. Customer interviews with 30+ property managers revealed strong demand, with 85% expressing interest. Resident surveys showed 72% wanted to build credit from rent payments. This validated a clear market opportunity with proven willingness to pay."
+        description: "Through competitive analysis, I identified that major competitors like Yardi and AppFolio were already monetizing credit-building services. Customer interviews with 30+ property managers revealed strong demand, with 85% expressing interest. Resident surveys showed 72% wanted to build credit from rent payments. This validated a clear market opportunity with proven willingness to pay.",
+        methodology: [
+          "Conducted 30+ customer interviews using Jobs-to-be-Done framework",
+          "Analyzed competitive landscape: Yardi (RentCafe), AppFolio, Buildium",
+          "Surveyed 500+ residents across 15 properties (72% response rate)",
+          "Analyzed churn data correlating lack of value-added services to 12% higher cancellation rates"
+        ]
+      },
+      competitiveAnalysis: {
+        title: "Competitive Positioning",
+        competitors: [
+          { name: "Yardi RentCafe", strength: "Established credit reporting", weakness: "Complex enrollment, 40% drop-off", ourAdvantage: "One-click auto-enrollment" },
+          { name: "AppFolio", strength: "Strong property mgmt platform", weakness: "Manual opt-in process", ourAdvantage: "Automated during lease signing" },
+          { name: "Buildium", strength: "Mid-market presence", weakness: "No credit builder option", ourAdvantage: "First-mover in segment" }
+        ],
+        strategicChoice: "We chose to compete on ease of enrollment rather than credit score improvement features. Analysis showed 68% of failed adoptions were due to complex sign-up processes, not feature limitations."
       },
       challenge: {
         title: "The Challenge",
@@ -38,7 +53,58 @@ const CaseStudyPage = () => {
       },
       strategicDecisions: {
         title: "Strategic Decisions & Trade-offs",
-        description: "I made several critical prioritization decisions: 1) Partner with established credit bureau provider rather than build in-house to reduce regulatory risk and time-to-market, 2) Launch with auto-enrollment opt-out model to maximize adoption despite higher complexity, 3) Prioritize mobile experience over desktop given resident usage patterns, 4) Defer manual payment reporting to focus on automated rent payments first. These trade-offs balanced speed, risk, and business impact."
+        description: "I made several critical prioritization decisions using RICE scoring framework (Reach, Impact, Confidence, Effort). Each decision involved explicit trade-offs between speed, risk, and business value.",
+        decisions: [
+          {
+            decision: "Partner vs. Build In-House",
+            chosen: "Partnered with RentTrack (established credit bureau partner)",
+            rejected: "Build proprietary credit reporting system",
+            rationale: "Reduced regulatory risk from 'High' to 'Low', accelerated launch by 8 months, but sacrificed 15% margin on per-transaction fees. ROI analysis showed break-even in 18 months vs. 36+ for in-house.",
+            risk: "Vendor dependency and lower margins"
+          },
+          {
+            decision: "Auto-Enrollment vs. Manual Opt-In",
+            chosen: "Auto-enrollment with opt-out (default-on)",
+            rejected: "Manual opt-in model",
+            rationale: "Competitive data showed 60-70% higher adoption with opt-out models. Required additional legal review (3 weeks delay) and more complex compliance requirements, but projected to 3x adoption rates.",
+            risk: "Higher compliance burden and potential pushback"
+          },
+          {
+            decision: "Mobile-First vs. Desktop Parity",
+            chosen: "Mobile-optimized experience as MVP",
+            rejected: "Full desktop feature parity at launch",
+            rationale: "User analytics showed 78% of resident logins on mobile. Focusing on mobile allowed us to ship 6 weeks earlier. Desktop version followed in Phase 2.",
+            risk: "Property manager desktop users had limited visibility initially"
+          }
+        ],
+        whatWeDidntBuild: [
+          "Manual payment reporting (residents wanted automation)",
+          "Credit monitoring dashboard (nice-to-have, not critical path)",
+          "Multi-bureau reporting (started with Experian only to reduce complexity)"
+        ]
+      },
+      challengesAndSetbacks: {
+        title: "Challenges & What Went Wrong",
+        challenges: [
+          {
+            challenge: "Integration Delay with Credit Partner",
+            impact: "Launch delayed 5 weeks due to API authentication issues",
+            resolution: "Worked directly with partner's engineering team, discovered undocumented rate limits. Created fallback queue system for failed reports.",
+            learning: "Always build buffer time for third-party integrations. Added 30% contingency to future partner-dependent timelines."
+          },
+          {
+            challenge: "Regulatory Compliance Complexity",
+            impact: "Legal review identified FCRA compliance gaps that required feature redesign",
+            resolution: "Collaborated with legal team to redesign consent flow. Added explicit opt-out mechanism and clearer disclosure language.",
+            learning: "Involve legal/compliance earlier in discovery phase. Now standard practice to have compliance review at wireframe stage."
+          },
+          {
+            challenge: "Initial Adoption Lower Than Projected",
+            impact: "First month adoption was 45% vs. 80% target",
+            resolution: "User research revealed residents didn't understand value prop. Redesigned onboarding to show credit score improvement examples. Adoption climbed to 80% within 90 days.",
+            learning: "Never assume users understand the 'why.' Education is as important as features."
+          }
+        ]
       },
       solution: {
         title: "My Approach",
@@ -163,7 +229,23 @@ const CaseStudyPage = () => {
       overview: "Used churn analysis and customer interviews to identify critical feature gap threatening $2M ARR. Led full product lifecycle from discovery to GTM, prioritizing seamless integration over feature richness to preserve at-risk revenue.",
       discovery: {
         title: "Discovery Process",
-        description: "Analyzed churn data revealing time-tracking gaps mentioned in 40% of exit interviews. Conducted 25 customer interviews uncovering frustration with external tools like spreadsheets. Competitive analysis showed Asana and Monday.com had integrated time tracking. Used Jobs-to-be-Done framework to understand managers needed real-time visibility into team capacity, not just historical reporting. This research shaped our MVP scope."
+        description: "Analyzed churn data revealing time-tracking gaps mentioned in 40% of exit interviews. Conducted 25 customer interviews uncovering frustration with external tools like spreadsheets. Competitive analysis showed Asana and Monday.com had integrated time tracking. Used Jobs-to-be-Done framework to understand managers needed real-time visibility into team capacity, not just historical reporting. This research shaped our MVP scope.",
+        methodology: [
+          "Churn analysis: 40% of exit interviews cited time-tracking gaps (N=50 churned customers over 6 months)",
+          "Customer interviews: 25 in-depth sessions with creative team managers using JTBD framework",
+          "Competitive teardown: Analyzed Asana, Monday.com, Wrike, and Teamwork time-tracking features",
+          "Quantitative survey: 120 active customers rated pain points (time-tracking scored 8.2/10 importance)",
+          "Usage data analysis: 65% of users maintained separate spreadsheets for time tracking"
+        ]
+      },
+      competitiveAnalysis: {
+        title: "Competitive Landscape & Strategic Positioning",
+        competitors: [
+          { name: "Asana", strength: "Simple timer widget", weakness: "No project budget tracking", ourAdvantage: "Integrated budget vs. actual reporting" },
+          { name: "Monday.com", strength: "Visual dashboards", weakness: "Complex setup process", ourAdvantage: "Zero-config time logging" },
+          { name: "Wrike", strength: "Enterprise features", weakness: "Overwhelming for small teams", ourAdvantage: "Right-sized for creative teams" }
+        ],
+        strategicChoice: "We prioritized simplicity over comprehensiveness. Rather than building a full timesheet system, we focused on frictionless time capture at the task level. This aligned with our existing workflow-first philosophy and differentiated us from enterprise-focused competitors."
       },
       challenge: {
         title: "The Challenge",
@@ -171,7 +253,58 @@ const CaseStudyPage = () => {
       },
       strategicDecisions: {
         title: "Strategic Product Decisions",
-        description: "Key trade-offs I navigated: 1) Built simple click-to-log interface over complex timesheet imports to ship faster, 2) Integrated at task level rather than project level for granular insights despite higher technical complexity, 3) Prioritized manager dashboard over team member views to address primary use case first, 4) Partnered with marketing on launch timing to coincide with renewal season. Used RICE scoring to validate prioritization, focusing on high-reach, high-impact features first."
+        description: "Applied RICE scoring framework (Reach × Impact × Confidence ÷ Effort) to prioritize features. Focused on decisions that would preserve at-risk $2M ARR while maintaining product velocity.",
+        decisions: [
+          {
+            decision: "Simple Timer vs. Timesheet Import",
+            chosen: "Built lightweight click-to-log timer",
+            rejected: "Complex timesheet import from Excel/CSV",
+            rationale: "User research showed 82% of users wanted real-time logging, not retrospective entry. Simple timer reduced dev time by 4 weeks and matched actual user behavior. RICE score: 9.6 vs 4.2 for imports.",
+            risk: "Edge cases where users needed to log historical time"
+          },
+          {
+            decision: "Task-Level vs. Project-Level Tracking",
+            chosen: "Task-level time granularity",
+            rejected: "Project-only time buckets",
+            rationale: "Managers specifically requested visibility into which tasks consumed time, not just overall project hours. Required more complex data model but addressed root cause of churn. Added 2 sprints to timeline.",
+            risk: "Increased technical complexity and performance concerns"
+          },
+          {
+            decision: "Manager Dashboard First vs. Team Member Features",
+            chosen: "Prioritized manager reporting dashboard",
+            rejected: "Rich team member time analysis views",
+            rationale: "Churn data showed managers made renewal decisions. 85% of interviewees were managers who needed capacity planning. Team member features delivered in Phase 2.",
+            risk: "Team members initially had limited value from feature"
+          }
+        ],
+        whatWeDidntBuild: [
+          "Timesheet approvals workflow (manual approval slowed teams down)",
+          "Billable vs. non-billable categorization (not primary use case for creative teams)",
+          "Advanced time forecasting (nice-to-have, focused on actual tracking first)"
+        ]
+      },
+      challengesAndSetbacks: {
+        title: "Challenges & Course Corrections",
+        challenges: [
+          {
+            challenge: "Performance Issues with Large Projects",
+            impact: "Beta users with 500+ tasks experienced 3-5 second load times for time logs",
+            resolution: "Engineering implemented pagination and lazy loading. Added database indexing on time_entry queries. Load times reduced to <500ms.",
+            learning: "Should have load-tested with realistic data volumes earlier. Now standard practice to test with 10x expected scale during development."
+          },
+          {
+            challenge: "Feature Adoption Lower Than Expected",
+            impact: "First 30 days post-launch showed only 40% adoption vs. 70% target",
+            resolution: "User interviews revealed friction: users forgot to log time. Added Slack/email reminders and browser extension. Adoption climbed to 70% within 60 days.",
+            learning: "Building the feature is only half the battle. Habit formation requires prompts and reminders. Now build notification strategy into every workflow feature."
+          },
+          {
+            challenge: "Cross-Team Stakeholder Misalignment",
+            impact: "Sales team promised timesheet exports to prospects before feature was roadmapped",
+            resolution: "Created shared roadmap visibility for sales team. Accelerated timesheet export feature to next sprint. Established weekly alignment meetings between PM and Sales leadership.",
+            learning: "Lack of roadmap transparency creates misaligned expectations. Implemented quarterly roadmap sharing sessions with all go-to-market teams."
+          }
+        ]
       },
       solution: {
         title: "Strategic Solution",
@@ -210,7 +343,7 @@ const CaseStudyPage = () => {
           }
         ]
       },
-      technologies: ["Pendo", "Figma", "Miro", "Gainsight"],
+      technologies: ["Pendo", "Figma", "Miro", "Gainsight", "PostgreSQL", "React"],
       learnings: {
         title: "Key Learnings",
         insights: [
@@ -965,9 +1098,64 @@ const CaseStudyPage = () => {
             </div>
 
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-teal-200">
-              <p className="text-lg text-slate-700 leading-relaxed">
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 {project.discovery.description}
               </p>
+
+              {project.discovery.methodology && (
+                <div className="mt-6">
+                  <h3 className="text-xl font-semibold text-slate-800 mb-4">Research Methodology</h3>
+                  <ul className="space-y-3">
+                    {project.discovery.methodology.map((item: string, idx: number) => (
+                      <li key={idx} className="flex items-start space-x-3">
+                        <CheckCircle className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                        <span className="text-slate-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Competitive Analysis Section */}
+      {project.competitiveAnalysis && (
+        <section id="competitive-analysis" className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center space-x-3 mb-8">
+              <Scale className="w-8 h-8 text-blue-600" />
+              <h2 className="text-3xl font-bold text-slate-800">{project.competitiveAnalysis.title}</h2>
+            </div>
+
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200 mb-8">
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                <strong>Strategic Choice:</strong> {project.competitiveAnalysis.strategicChoice}
+              </p>
+
+              <div className="overflow-x-auto">
+                <table className="w-full bg-white rounded-lg shadow-sm">
+                  <thead className="bg-slate-800 text-white">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">Competitor</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">Their Strength</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">Their Weakness</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold">Our Advantage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {project.competitiveAnalysis.competitors.map((comp: any, idx: number) => (
+                      <tr key={idx} className={idx % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                        <td className="px-4 py-3 font-semibold text-slate-800">{comp.name}</td>
+                        <td className="px-4 py-3 text-slate-600">{comp.strength}</td>
+                        <td className="px-4 py-3 text-red-600">{comp.weakness}</td>
+                        <td className="px-4 py-3 text-teal-700 font-medium">{comp.ourAdvantage}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </section>
@@ -1016,15 +1204,64 @@ const CaseStudyPage = () => {
         <section id="strategic-decisions" className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center space-x-3 mb-8">
-              <Target className="w-8 h-8 text-blue-600" />
+              <GitBranch className="w-8 h-8 text-blue-600" />
               <h2 className="text-3xl font-bold text-slate-800">{project.strategicDecisions.title}</h2>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-blue-200">
-              <p className="text-lg text-slate-600 leading-relaxed">
+            <div className="mb-6">
+              <p className="text-lg text-slate-700 leading-relaxed">
                 {project.strategicDecisions.description}
               </p>
             </div>
+
+            {/* Trade-off Decision Cards */}
+            {project.strategicDecisions.decisions && (
+              <div className="space-y-6 mb-8">
+                {project.strategicDecisions.decisions.map((decision: any, idx: number) => (
+                  <div key={idx} className="bg-white rounded-2xl shadow-lg p-6 border border-blue-200">
+                    <div className="mb-4">
+                      <h3 className="text-xl font-bold text-slate-800 mb-2">{decision.decision}</h3>
+                      <div className="grid md:grid-cols-2 gap-4 mb-4">
+                        <div className="bg-teal-50 p-4 rounded-lg border-l-4 border-teal-500">
+                          <div className="text-sm font-semibold text-teal-700 mb-1">✓ What We Built</div>
+                          <p className="text-slate-700">{decision.chosen}</p>
+                        </div>
+                        <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+                          <div className="text-sm font-semibold text-red-700 mb-1">✗ What We Rejected</div>
+                          <p className="text-slate-700">{decision.rejected}</p>
+                        </div>
+                      </div>
+                      <div className="bg-blue-50 p-4 rounded-lg mb-3">
+                        <div className="text-sm font-semibold text-blue-700 mb-2">Rationale</div>
+                        <p className="text-slate-700">{decision.rationale}</p>
+                      </div>
+                      <div className="bg-orange-50 p-4 rounded-lg">
+                        <div className="text-sm font-semibold text-orange-700 mb-1">Risk Accepted</div>
+                        <p className="text-slate-700">{decision.risk}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* What We Didn't Build */}
+            {project.strategicDecisions.whatWeDidntBuild && (
+              <div className="bg-slate-800 text-white rounded-2xl p-6">
+                <h3 className="text-xl font-bold mb-4 flex items-center">
+                  <XCircle className="w-6 h-6 mr-2" />
+                  What We Didn't Build (And Why)
+                </h3>
+                <ul className="space-y-2">
+                  {project.strategicDecisions.whatWeDidntBuild.map((item: string, idx: number) => (
+                    <li key={idx} className="flex items-start space-x-3">
+                      <span className="text-slate-400 mt-1">•</span>
+                      <span className="text-slate-200">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -1073,11 +1310,45 @@ const CaseStudyPage = () => {
         </div>
       </section>
 
+      {/* Challenges Section */}
+      {project.challengesAndSetbacks && (
+        <section id="challenges" className="py-16 bg-gradient-to-br from-red-50 to-orange-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center space-x-3 mb-8">
+              <AlertTriangle className="w-8 h-8 text-red-600" />
+              <h2 className="text-3xl font-bold text-slate-800">{project.challengesAndSetbacks.title}</h2>
+            </div>
+
+            <div className="space-y-6">
+              {project.challengesAndSetbacks.challenges.map((item: any, idx: number) => (
+                <div key={idx} className="bg-white rounded-2xl shadow-lg p-6 border border-red-200">
+                  <h3 className="text-xl font-bold text-red-700 mb-3">{item.challenge}</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <div className="text-sm font-semibold text-slate-700 mb-1">Impact</div>
+                      <p className="text-slate-600">{item.impact}</p>
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold text-slate-700 mb-1">Resolution</div>
+                      <p className="text-slate-600">{item.resolution}</p>
+                    </div>
+                    <div className="bg-teal-50 p-4 rounded-lg border-l-4 border-teal-500">
+                      <div className="text-sm font-semibold text-teal-700 mb-1">Key Learning</div>
+                      <p className="text-slate-700">{item.learning}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Learnings Section */}
       <section id="learnings" className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-slate-800 mb-8">{project.learnings.title}</h2>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             {project.learnings.insights.map((learning, idx) => (
               <div key={idx} className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200">
