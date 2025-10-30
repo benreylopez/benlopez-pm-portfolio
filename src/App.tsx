@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import ProductPhilosophy from './components/ProductPhilosophy';
 import About from './components/About';
-import Testimonials from './components/Testimonials';
 import CrossFunctionalLeadership from './components/CrossFunctionalLeadership';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
@@ -22,7 +21,6 @@ function App() {
             <About />
             <ProductPhilosophy />
             <CrossFunctionalLeadership />
-            <Testimonials />
             <Contact />
           </>
         } />
