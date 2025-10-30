@@ -27,10 +27,18 @@ const CaseStudyPage = () => {
       team: "6 people total - 4 Software engineers, 1 designer, 1 QA",
       image: "🏢",
       category: "PropTech",
-      overview: "I built a new online financial tool for apartment residents that allowed them to improve their credit score by paying rent on time. This innovation simplified processes for residents and generated significant new revenue for the company, achieved by collaborating closely with outside partners, designers, and data experts.",
+      overview: "Identified untapped revenue opportunity in PropTech by solving a real resident pain point. Led discovery, validated market demand through customer interviews, and orchestrated complex third-party integration to unlock $2M ARR while delivering genuine financial value to residents.",
+      discovery: {
+        title: "Market Discovery & Validation",
+        description: "Through competitive analysis, I identified that major competitors like Yardi and AppFolio were already monetizing credit-building services. Customer interviews with 30+ property managers revealed strong demand, with 85% expressing interest. Resident surveys showed 72% wanted to build credit from rent payments. This validated a clear market opportunity with proven willingness to pay."
+      },
       challenge: {
         title: "The Challenge",
         description: "Many apartment residents struggled to build credit, and property managers needed new ways to add value and generate revenue. The key hurdle was building a seamless financial product that served both while meeting strict regulations."
+      },
+      strategicDecisions: {
+        title: "Strategic Decisions & Trade-offs",
+        description: "I made several critical prioritization decisions: 1) Partner with established credit bureau provider rather than build in-house to reduce regulatory risk and time-to-market, 2) Launch with auto-enrollment opt-out model to maximize adoption despite higher complexity, 3) Prioritize mobile experience over desktop given resident usage patterns, 4) Defer manual payment reporting to focus on automated rent payments first. These trade-offs balanced speed, risk, and business impact."
       },
       solution: {
         title: "My Approach",
@@ -152,10 +160,18 @@ const CaseStudyPage = () => {
       team: "6 people - 3 software engineers, 1 designer, 1 QA, 1 Product Analyst",
       image: "⏱️",
       category: "B2B SaaS",
-      overview: "Drove the development of a critical time-tracking feature after data revealed workflow uncertainty was a primary driver of user churn. I led the initiative from concept to launch, delivering a solution that gave managers actionable data on team workloads and project efficiency.",
+      overview: "Used churn analysis and customer interviews to identify critical feature gap threatening $2M ARR. Led full product lifecycle from discovery to GTM, prioritizing seamless integration over feature richness to preserve at-risk revenue.",
+      discovery: {
+        title: "Discovery Process",
+        description: "Analyzed churn data revealing time-tracking gaps mentioned in 40% of exit interviews. Conducted 25 customer interviews uncovering frustration with external tools like spreadsheets. Competitive analysis showed Asana and Monday.com had integrated time tracking. Used Jobs-to-be-Done framework to understand managers needed real-time visibility into team capacity, not just historical reporting. This research shaped our MVP scope."
+      },
       challenge: {
         title: "The Challenge",
         description: "Customer data revealed that the lack of an integrated time tracker was a primary driver of churn. Our clients were forced to use external tools like spreadsheets to track project hours, creating a disjointed and inefficient user experience. This feature gap made us uncompetitive, causing us to lose customers to other platforms that offered a built-in time tracking solution."
+      },
+      strategicDecisions: {
+        title: "Strategic Product Decisions",
+        description: "Key trade-offs I navigated: 1) Built simple click-to-log interface over complex timesheet imports to ship faster, 2) Integrated at task level rather than project level for granular insights despite higher technical complexity, 3) Prioritized manager dashboard over team member views to address primary use case first, 4) Partnered with marketing on launch timing to coincide with renewal season. Used RICE scoring to validate prioritization, focusing on high-reach, high-impact features first."
       },
       solution: {
         title: "Strategic Solution",
@@ -865,23 +881,25 @@ const CaseStudyPage = () => {
 
               {/* Quick Actions */}
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+                {project.discovery && (
+                  <button
+                    onClick={() => scrollToSection('discovery')}
+                    className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-700 transition-all duration-300 text-sm sm:text-base"
+                  >
+                    View Discovery
+                  </button>
+                )}
                 <button
                   onClick={() => scrollToSection('challenge')}
-                  className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-700 transition-all duration-300 text-sm sm:text-base"
+                  className="border-2 border-gray-300 hover:border-teal-500 text-gray-600 hover:text-teal-700 px-4 sm:px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-50 text-sm sm:text-base"
                 >
-                  View Challenge
+                  See Challenge
                 </button>
                 <button
                   onClick={() => scrollToSection('results')}
                   className="border-2 border-gray-300 hover:border-teal-500 text-gray-600 hover:text-teal-700 px-4 sm:px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-50 text-sm sm:text-base"
                 >
-                  See Results
-                </button>
-                <button
-                  onClick={() => scrollToSection('user-journey')}
-                  className="border-2 border-purple-300 hover:border-purple-500 text-purple-600 hover:text-purple-700 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-purple-50"
-                >
-                  View Journey Map
+                  View Results
                 </button>
               </div>
             </div>
@@ -937,6 +955,24 @@ const CaseStudyPage = () => {
         </div>
       </section>
 
+      {/* Discovery Section */}
+      {project.discovery && (
+        <section id="discovery" className="py-16 bg-gradient-to-br from-teal-50 to-cyan-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center space-x-3 mb-8">
+              <Lightbulb className="w-8 h-8 text-teal-600" />
+              <h2 className="text-3xl font-bold text-slate-800">{project.discovery.title}</h2>
+            </div>
+
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-teal-200">
+              <p className="text-lg text-slate-700 leading-relaxed">
+                {project.discovery.description}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Challenge Section */}
       <section id="challenge" className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -974,6 +1010,24 @@ const CaseStudyPage = () => {
           />
         </div>
       </section>
+
+      {/* Strategic Decisions Section */}
+      {project.strategicDecisions && (
+        <section id="strategic-decisions" className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center space-x-3 mb-8">
+              <Target className="w-8 h-8 text-blue-600" />
+              <h2 className="text-3xl font-bold text-slate-800">{project.strategicDecisions.title}</h2>
+            </div>
+
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-blue-200">
+              <p className="text-lg text-slate-600 leading-relaxed">
+                {project.strategicDecisions.description}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Solution Section */}
       <section id="solution" className="py-16 bg-gradient-to-br from-gray-50 to-white">

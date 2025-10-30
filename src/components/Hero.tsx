@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, Download, Linkedin } from 'lucide-react';
+import { ArrowDown, Linkedin, TrendingUp, Users, Zap } from 'lucide-react';
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -24,33 +24,58 @@ const Hero = () => {
           {/* Content */}
           <div className="text-slate-800 space-y-6">
             <div className="space-y-4">
-              <p className="text-teal-600 font-medium text-lg">Hello, I'm</p>
+              <p className="text-teal-600 font-semibold text-sm uppercase tracking-wide">Strategic Product Leader</p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-slate-800">
                 Ben Lopez
               </h1>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-600 mb-6">
-                Senior Product Manager
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-700 mb-4">
+                Turning Complex Business Challenges into Revenue-Generating Products
               </h2>
-              <p className="text-xl text-slate-600 leading-relaxed mb-4">
-                Driving AI-powered growth in B2B SaaS through strategic product innovation
+              <p className="text-xl text-slate-600 leading-relaxed">
+                I've launched <span className="font-bold text-teal-600">25+ products</span> generating <span className="font-bold text-teal-600">$10M+ in new revenue</span> by combining design thinking with data-driven product strategy. From PropTech to LegalTech, I build products that solve real business problems while delighting users.
               </p>
               <p className="text-lg text-slate-500 leading-relaxed">
-                I transform data insights into customer-centric product experiences that boost revenue and retention.
+                My design background gives me a unique edge in creating intuitive experiences that drive adoption, retention, and measurable business outcomes.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-6">
-              <button 
-                onClick={handleResumeView}
+            {/* Quick Impact Stats */}
+            <div className="grid grid-cols-3 gap-4 pt-4 pb-2">
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-2">
+                  <TrendingUp className="w-5 h-5 text-teal-600" />
+                </div>
+                <div className="text-2xl font-bold text-slate-800">$10M+</div>
+                <div className="text-xs text-slate-500">Revenue Generated</div>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-2">
+                  <Users className="w-5 h-5 text-teal-600" />
+                </div>
+                <div className="text-2xl font-bold text-slate-800">500K+</div>
+                <div className="text-xs text-slate-500">Users Impacted</div>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-2">
+                  <Zap className="w-5 h-5 text-teal-600" />
+                </div>
+                <div className="text-2xl font-bold text-slate-800">25+</div>
+                <div className="text-xs text-slate-500">Products Launched</div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4">
+              <button
+                onClick={scrollToAbout}
                 className="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg"
               >
-                <span>View Resume</span>
+                <span>View My Product Work</span>
               </button>
-              <button 
-                onClick={scrollToAbout}
+              <button
+                onClick={handleResumeView}
                 className="border-2 border-gray-300 hover:border-teal-500 text-gray-600 hover:text-teal-700 px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-50"
               >
-                Explore My Work
+                Download Resume
               </button>
             </div>
 
@@ -66,13 +91,13 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Profile Image */}
-          <div className="relative">
-            <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 mx-auto relative">
+          {/* Profile Image - Reduced Size */}
+          <div className="relative lg:flex lg:justify-end">
+            <div className="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 mx-auto lg:mx-0 relative">
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-gray-200 hover:border-teal-300 transition-all duration-300 shadow-lg">
-                <img 
-                  src="/ben-photo.jpg" 
-                  alt="Ben Lopez - Senior Product Manager"
+                <img
+                  src="/ben-photo.jpg"
+                  alt="Ben Lopez - Strategic Product Manager"
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     console.error('Failed to load profile image');

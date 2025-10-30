@@ -19,7 +19,7 @@ const Portfolio = () => {
     {
       title: "Credit Builder for Renters",
       company: "ResMan Software",
-      description: "I built a new online financial tool for apartment residents that allowed them to improve their credit score by paying rent on time. This innovation simplified processes for residents and generated significant new revenue for the company, achieved by collaborating closely with outside partners, designers, and data experts.",
+      description: "Identified untapped revenue opportunity in PropTech by solving a real resident pain point. Led discovery, validated market demand through customer interviews, and orchestrated complex third-party integration. Balanced regulatory compliance with user experience to unlock $2M ARR while delivering genuine financial value to residents.",
       results: [
         "Unlocked $2M in new yearly revenue (ARR) with a credit-builder feature",
         "80% adoption rate among eligible residents",
@@ -32,7 +32,7 @@ const Portfolio = () => {
     {
       title: "Integrated Time Tracking for Creative Teams",
       company: "Lytho",
-      description: "Drove the development of a critical time-tracking feature after data revealed workflow uncertainty was a primary driver of user churn. I led the initiative from concept to launch, delivering a solution that gave managers actionable data on team workloads and project efficiency.",
+      description: "Used churn analysis and customer interviews to identify critical feature gap threatening $2M ARR. Led full product lifecycle from discovery to GTM, prioritizing seamless integration over feature richness. Partnered with marketing on launch strategy, resulting in 70% adoption and 15% churn reduction.",
       results: [
         "Preserved $2M in ARR by solving key user frustrations",
         "Cut workflow time by 50%, boosting user satisfaction by 25%",
@@ -45,7 +45,7 @@ const Portfolio = () => {
     {
       title: "Launching a New Renters Insurance Product",
       company: "ResMan",
-      description: "Orchestrated the integration of a white-labeled insurance solution directly into the ResMan platform. This initiative streamlined the process for residents to acquire renters insurance and created a significant new revenue stream for property management companies.",
+      description: "Identified competitive gap through market analysis and led company's first insurance product from concept to launch. Managed complex stakeholder alignment across legal, compliance, sales, and engineering. Built entire GTM strategy including sales enablement, resulting in $100K MRR and new ancillary revenue stream.",
       results: [
         "Generated $100K in new monthly recurring revenue",
         "Launched ResMan's first insurance product, creating a new revenue stream for both the company and for property managers",
@@ -58,7 +58,7 @@ const Portfolio = () => {
     {
       title: "Expanding from Web to Native Mobile",
       company: "Legal Zoom",
-      description: "Led the expansion from web to mobile, launching a new native app for both iOS and Android to meet customer demand. I worked with mobile developers and designers to replicate the core web experience, prioritizing features based on analytics and customer interviews to boost retention and attract new users.",
+      description: "Validated mobile opportunity through user research showing high demand for on-the-go access. Led prioritization of web features for mobile-first experience using data-driven frameworks. Coordinated dual-platform launch while managing App Store optimization strategy, driving 28% MAU growth and expanding addressable market.",
       results: [
         "Drove a 28% surge in Monthly Active Users (MAUs)",
         "Increased new app downloads by 30% through App Store optimization and push notification campaigns",
@@ -125,10 +125,14 @@ const Portfolio = () => {
     <section id="portfolio" className="py-20 bg-gradient-to-br from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">Portfolio</h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            A comprehensive showcase of impactful products and innovative AI solutions I've built, 
-            launched, and scaled across various industries.
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">Product Portfolio</h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-4">
+            From identifying market opportunities to shipping revenue-generating products,
+            these case studies demonstrate my end-to-end product management capabilities.
+          </p>
+          <p className="text-lg text-slate-500 max-w-3xl mx-auto leading-relaxed">
+            Each project showcases strategic decision-making, cross-functional leadership,
+            and measurable business impact across PropTech, LegalTech, and SaaS industries.
           </p>
         </div>
 
