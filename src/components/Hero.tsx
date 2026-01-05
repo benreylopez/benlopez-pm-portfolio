@@ -49,17 +49,6 @@ const Hero = () => {
                 <span>View LinkedIn Profile</span>
               </a>
             </div>
-
-            <div className="flex space-x-6 pt-4">
-              <a 
-                href="https://www.linkedin.com/in/benreylopez" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-slate-500 hover:text-teal-500 transition-colors"
-              >
-                <Linkedin size={24} />
-              </a>
-            </div>
           </div>
 
           {/* Profile Image - Reduced Size */}
