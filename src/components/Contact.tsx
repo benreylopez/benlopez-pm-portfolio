@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, MapPin, Linkedin, Calendar, FileDown } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Calendar } from 'lucide-react';
 
 const Contact = () => {
   const contactInfo = [
@@ -17,9 +17,6 @@ const Contact = () => {
     }
   ];
 
-  const handleResumeView = () => {
-    window.open('/Benjamin Lopez Resume.pdf', '_blank', 'noopener,noreferrer');
-  };
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-white to-gray-50">
@@ -39,13 +36,15 @@ const Contact = () => {
               <Mail size={20} />
               <span>Schedule a Conversation</span>
             </a>
-            <button
-              onClick={handleResumeView}
+            <a
+              href="https://www.linkedin.com/in/benreylopez"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-all duration-300 inline-flex items-center justify-center space-x-2"
             >
-              <FileDown size={20} />
-              <span>Download Resume</span>
-            </button>
+              <Linkedin size={20} />
+              <span>View LinkedIn Profile</span>
+            </a>
           </div>
         </div>
 

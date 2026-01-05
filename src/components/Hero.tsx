@@ -9,10 +9,6 @@ const Hero = () => {
     }
   };
 
-  const handleResumeView = () => {
-    // Open the resume PDF in a new tab
-    window.open('/Benjamin Lopez Resume.pdf', '_blank', 'noopener,noreferrer');
-  };
 
   return (
     <section className="min-h-screen relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100">
@@ -43,12 +39,15 @@ const Hero = () => {
               >
                 <span>View My Product Work</span>
               </button>
-              <button
-                onClick={handleResumeView}
-                className="border-2 border-gray-300 hover:border-teal-500 text-gray-600 hover:text-teal-700 px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-50"
+              <a
+                href="https://www.linkedin.com/in/benreylopez"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-gray-300 hover:border-teal-500 text-gray-600 hover:text-teal-700 px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-50 flex items-center justify-center space-x-2"
               >
-                Download Resume
-              </button>
+                <Linkedin size={20} />
+                <span>View LinkedIn Profile</span>
+              </a>
             </div>
 
             <div className="flex space-x-6 pt-4">
