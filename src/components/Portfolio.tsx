@@ -246,44 +246,44 @@ const Portfolio = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4 sm:mb-6 px-2">
             Product Portfolio
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4">
             12 revenue-generating products shipped across PropTech, LegalTech, MarTech, and B2B SaaS
           </p>
 
           {/* Impact Summary */}
-          <div className="flex flex-wrap justify-center gap-8 mb-12">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mb-12">
+            <div className="text-center min-w-[100px]">
+              <div className="text-3xl sm:text-4xl font-bold text-blue-500 mb-2">
                 ${totalARR.toFixed(1)}M+
               </div>
-              <div className="text-sm text-slate-600 font-medium">Total ARR Impact</div>
+              <div className="text-xs sm:text-sm text-slate-600 font-medium">Total ARR Impact</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">
+            <div className="text-center min-w-[100px]">
+              <div className="text-3xl sm:text-4xl font-bold text-blue-500 mb-2">
                 {projects.length}
               </div>
-              <div className="text-sm text-slate-600 font-medium">Products Shipped</div>
+              <div className="text-xs sm:text-sm text-slate-600 font-medium">Products Shipped</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">
+            <div className="text-center min-w-[100px]">
+              <div className="text-3xl sm:text-4xl font-bold text-blue-500 mb-2">
                 4
               </div>
-              <div className="text-sm text-slate-600 font-medium">Companies</div>
+              <div className="text-xs sm:text-sm text-slate-600 font-medium">Companies</div>
             </div>
           </div>
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-2">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveFilter(category)}
-              className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 ${
+              className={`px-3 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 ${
                 activeFilter === category
                   ? 'bg-gradient-to-r from-blue-400 to-sky-500 text-white shadow-lg scale-105'
                   : 'bg-white text-slate-600 hover:text-slate-800 hover:shadow-md border border-gray-200'
@@ -314,17 +314,17 @@ const Portfolio = () => {
                 }}
               >
                 {/* Card Header */}
-                <div className={`bg-gradient-to-r ${project.gradient} p-6 text-white relative overflow-hidden`}>
+                <div className={`bg-gradient-to-r ${project.gradient} p-4 sm:p-6 text-white relative overflow-hidden`}>
                   <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                   <div className="relative z-10">
-                    <Icon className="w-10 h-10 mb-4" />
-                    <h3 className="text-xl font-bold mb-2 leading-tight">
+                    <Icon className="w-8 h-8 sm:w-10 sm:h-10 mb-3 sm:mb-4" />
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 leading-tight">
                       {project.title}
                     </h3>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm opacity-90">{project.company}</span>
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <span className="text-xs sm:text-sm opacity-90">{project.company}</span>
                       {project.arr && (
-                        <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-bold">
+                        <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs font-bold">
                           {project.arr} ARR
                         </span>
                       )}
@@ -333,7 +333,7 @@ const Portfolio = () => {
                 </div>
 
                 {/* Card Content */}
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   <p className="text-slate-600 mb-4 leading-relaxed text-sm">
                     {project.description}
                   </p>
@@ -367,13 +367,13 @@ const Portfolio = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <p className="text-slate-600 mb-6">
+        <div className="text-center mt-12 sm:mt-16 px-4">
+          <p className="text-sm sm:text-base text-slate-600 mb-4 sm:mb-6">
             Want to learn more about my product approach?
           </p>
           <a
             href="#contact"
-            className="inline-block bg-gradient-to-r from-blue-400 to-sky-500 hover:from-blue-500 hover:to-sky-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="inline-block bg-gradient-to-r from-blue-400 to-sky-500 hover:from-blue-500 hover:to-sky-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Get in Touch
           </a>
