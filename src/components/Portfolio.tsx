@@ -227,7 +227,17 @@ const Portfolio = () => {
 
   const totalARR = projects
     .filter(p => p.arr)
-    .reduce((sum, p) => sum + parseFloat(p.arr!.replace(/[^0-9.]/g, '')), 0);
+    .reduce((sum, p) => {
+      const value = p.arr!;
+      const number = parseFloat(value.replace(/[^0-9.]/g, ''));
+
+      if (value.includes('K')) {
+        return sum + (number / 1000);
+      } else if (value.includes('M')) {
+        return sum + number;
+      }
+      return sum + number;
+    }, 0);
 
   return (
     <section id="portfolio" className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
