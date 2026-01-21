@@ -31,7 +31,7 @@ const Portfolio = () => {
       ],
       arr: "$300K",
       icon: Zap,
-      gradient: "from-teal-400 to-cyan-500",
+      gradient: "from-sky-400 to-blue-500",
       category: "MarTech"
     },
     {
@@ -45,7 +45,7 @@ const Portfolio = () => {
         "Reduced manual effort"
       ],
       icon: Target,
-      gradient: "from-violet-400 to-fuchsia-500",
+      gradient: "from-fuchsia-400 to-pink-400",
       category: "AI/ML"
     },
     {
@@ -59,7 +59,7 @@ const Portfolio = () => {
         "Weekly actionable insights"
       ],
       icon: TrendingUp,
-      gradient: "from-emerald-400 to-teal-500",
+      gradient: "from-emerald-400 to-green-500",
       category: "MarTech"
     },
     {
@@ -74,7 +74,7 @@ const Portfolio = () => {
       ],
       arr: "$5M",
       icon: DollarSign,
-      gradient: "from-blue-400 to-indigo-500",
+      gradient: "from-blue-400 to-sky-500",
       category: "B2B SaaS"
     },
     {
@@ -89,7 +89,7 @@ const Portfolio = () => {
       ],
       arr: "$2.5M",
       icon: Users,
-      gradient: "from-cyan-400 to-blue-500",
+      gradient: "from-cyan-400 to-sky-500",
       category: "B2B SaaS"
     },
     {
@@ -103,7 +103,7 @@ const Portfolio = () => {
         "Improved user experience"
       ],
       icon: Zap,
-      gradient: "from-teal-400 to-green-500",
+      gradient: "from-lime-400 to-emerald-500",
       category: "B2B SaaS"
     },
     {
@@ -118,7 +118,7 @@ const Portfolio = () => {
       ],
       arr: "$1.5M",
       icon: Building2,
-      gradient: "from-orange-400 to-red-500",
+      gradient: "from-orange-400 to-amber-500",
       category: "PropTech"
     },
     {
@@ -133,7 +133,7 @@ const Portfolio = () => {
       ],
       arr: "$1M",
       icon: Building2,
-      gradient: "from-amber-400 to-orange-500",
+      gradient: "from-amber-400 to-yellow-500",
       category: "PropTech"
     },
     {
@@ -148,7 +148,7 @@ const Portfolio = () => {
       ],
       arr: "$300K",
       icon: Scale,
-      gradient: "from-purple-400 to-pink-500",
+      gradient: "from-violet-400 to-purple-500",
       category: "LegalTech"
     },
     {
@@ -163,7 +163,7 @@ const Portfolio = () => {
       ],
       arr: "$120K",
       icon: TrendingUp,
-      gradient: "from-rose-400 to-red-500",
+      gradient: "from-rose-400 to-pink-500",
       category: "LegalTech"
     },
     {
@@ -177,7 +177,7 @@ const Portfolio = () => {
         "Mobile-first experience"
       ],
       icon: Smartphone,
-      gradient: "from-indigo-400 to-purple-500",
+      gradient: "from-blue-400 to-indigo-500",
       category: "Mobile"
     }
   ];
@@ -232,19 +232,19 @@ const Portfolio = () => {
           {/* Impact Summary */}
           <div className="flex flex-wrap justify-center gap-8 mb-12">
             <div className="text-center">
-              <div className="text-4xl font-bold text-teal-600 mb-2">
+              <div className="text-4xl font-bold text-blue-500 mb-2">
                 ${totalARR.toFixed(1)}M+
               </div>
               <div className="text-sm text-slate-600 font-medium">Total ARR Impact</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-teal-600 mb-2">
+              <div className="text-4xl font-bold text-blue-500 mb-2">
                 {projects.length}
               </div>
               <div className="text-sm text-slate-600 font-medium">Products Shipped</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-teal-600 mb-2">
+              <div className="text-4xl font-bold text-blue-500 mb-2">
                 4
               </div>
               <div className="text-sm text-slate-600 font-medium">Companies</div>
@@ -260,7 +260,7 @@ const Portfolio = () => {
               onClick={() => setActiveFilter(category)}
               className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 ${
                 activeFilter === category
-                  ? 'bg-gradient-to-r from-teal-500 to-cyan-600 text-white shadow-lg scale-105'
+                  ? 'bg-gradient-to-r from-blue-400 to-sky-500 text-white shadow-lg scale-105'
                   : 'bg-white text-slate-600 hover:text-slate-800 hover:shadow-md border border-gray-200'
               }`}
             >
@@ -316,13 +316,13 @@ const Portfolio = () => {
                   {/* Impact List */}
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-800 mb-3 text-sm flex items-center">
-                      <TrendingUp className="w-4 h-4 mr-2 text-teal-600" />
+                      <TrendingUp className="w-4 h-4 mr-2 text-blue-500" />
                       Key Impact
                     </h4>
                     <ul className="space-y-2">
                       {project.impact.map((item, idx) => (
                         <li key={idx} className="flex items-start space-x-2 text-sm">
-                          <div className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></div>
                           <span className="text-slate-600">{item}</span>
                         </li>
                       ))}
@@ -348,7 +348,7 @@ const Portfolio = () => {
           </p>
           <a
             href="#contact"
-            className="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="inline-block bg-gradient-to-r from-blue-400 to-sky-500 hover:from-blue-500 hover:to-sky-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Get in Touch
           </a>

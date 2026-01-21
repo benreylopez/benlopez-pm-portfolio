@@ -55,7 +55,7 @@ const Header = () => {
             {!isHomePage && (
               <button
                 onClick={goHome}
-                className={`flex items-center space-x-1 hover:text-teal-500 transition-colors font-medium ${
+                className={`flex items-center space-x-1 hover:text-blue-500 transition-colors font-medium ${
                   isScrolled ? 'text-slate-700' : 'text-slate-700'
                 }`}
               >
@@ -64,16 +64,8 @@ const Header = () => {
               </button>
             )}
             <button
-              onClick={() => scrollToSection('about')}
-              className={`hover:text-teal-500 transition-colors font-medium ${
-                isScrolled ? 'text-slate-700' : 'text-slate-700'
-              }`}
-            >
-              About
-            </button>
-            <button
               onClick={() => scrollToSection('portfolio')}
-              className={`hover:text-teal-500 transition-colors font-medium ${
+              className={`hover:text-blue-500 transition-colors font-medium ${
                 isScrolled ? 'text-slate-700' : 'text-slate-700'
               }`}
             >
@@ -81,7 +73,7 @@ const Header = () => {
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className={`hover:text-teal-500 transition-colors font-medium ${
+              className={`hover:text-blue-500 transition-colors font-medium ${
                 isScrolled ? 'text-slate-700' : 'text-slate-700'
               }`}
             >
@@ -105,27 +97,21 @@ const Header = () => {
               {!isHomePage && (
                 <button
                   onClick={goHome}
-                  className="flex items-center space-x-2 text-slate-700 hover:text-teal-500 transition-colors font-medium text-left"
+                  className="flex items-center space-x-2 text-slate-700 hover:text-blue-500 transition-colors font-medium text-left"
                 >
                   <Home size={16} />
                   <span>Home</span>
                 </button>
               )}
               <button
-                onClick={() => scrollToSection('about')}
-                className="text-slate-700 hover:text-teal-500 transition-colors font-medium text-left"
-              >
-                About
-              </button>
-              <button
                 onClick={() => scrollToSection('portfolio')}
-                className="text-slate-700 hover:text-teal-500 transition-colors font-medium text-left"
+                className="text-slate-700 hover:text-blue-500 transition-colors font-medium text-left"
               >
                 Portfolio
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="text-slate-700 hover:text-teal-500 transition-colors font-medium text-left"
+                className="text-slate-700 hover:text-blue-500 transition-colors font-medium text-left"
               >
                 Contact
               </button>
