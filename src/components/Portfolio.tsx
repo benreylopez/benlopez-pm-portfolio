@@ -20,6 +20,21 @@ const Portfolio = () => {
 
   const projects: Project[] = [
     {
+      title: "ClaimCoach.AI - Product Strategy & AI Innovation",
+      company: "ClaimCoach.AI",
+      period: "2024 - Present",
+      description: "Co-founding and leading product strategy for an AI PropTech platform that automates insurance claims through AI-powered expert analysis, leveraging policy analysis to find missed revenue and deliver data-driven strategies to maximize settlements.",
+      impact: [
+        "$10K MRR secured via LOIs",
+        "Alpha customers: property manager & law firm",
+        "AI-powered claims automation"
+      ],
+      arr: "$10K",
+      icon: Zap,
+      gradient: "from-violet-400 to-purple-500",
+      category: "AI/ML"
+    },
+    {
       title: "White-Label SaaS Add-On for Interactive Emails",
       company: "Nel Marketing",
       period: "2023 - Present",
@@ -226,7 +241,7 @@ const Portfolio = () => {
             Product Portfolio
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            11 revenue-generating products shipped across PropTech, LegalTech, MarTech, and B2B SaaS
+            12 revenue-generating products shipped across PropTech, LegalTech, MarTech, and B2B SaaS
           </p>
 
           {/* Impact Summary */}
