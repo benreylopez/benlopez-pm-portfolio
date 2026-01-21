@@ -1,309 +1,358 @@
-import React, { useState } from 'react';
-import { ExternalLink, Calendar, Users, TrendingUp, Brain, Cpu, Bot, Zap, Github, Play } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { TrendingUp, DollarSign, Users, Zap, Building2, Scale, Smartphone, Target } from 'lucide-react';
+
+interface Project {
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+  impact: string[];
+  arr?: string;
+  icon: any;
+  gradient: string;
+  category: string;
+}
 
 const Portfolio = () => {
-  const [activeTab, setActiveTab] = useState<'traditional' | 'ai'>('traditional');
-  const navigate = useNavigate();
+  const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const createSlug = (title: string) => {
-    return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-  };
-
-  const handleViewCaseStudy = (title: string) => {
-    const slug = createSlug(title);
-    navigate(`/case-study/${slug}`);
-  };
-
-  const traditionalProjects = [
+  const projects: Project[] = [
     {
-      title: "Credit Builder for Renters",
-      company: "ResMan Software",
-      description: "Identified untapped revenue opportunity in PropTech by solving a real resident pain point. Led discovery, validated market demand through customer interviews, and orchestrated complex third-party integration. Balanced regulatory compliance with user experience to unlock $2M ARR while delivering genuine financial value to residents.",
-      results: [
-        "Unlocked $2M in new yearly revenue (ARR) with a credit-builder feature",
-        "80% adoption rate among eligible residents",
-        "90% increase in positive property management feedback"
+      title: "White-Label SaaS Add-On for Interactive Emails",
+      company: "Nel Marketing",
+      period: "2023 - Present",
+      description: "Created a $300K ARR white-label SaaS add-on by packaging a repeatable offer and enabling specialists to sell and deliver it seamlessly.",
+      impact: [
+        "$300K ARR generated",
+        "60% client adoption rate",
+        "Enabled new revenue stream"
       ],
-      technologies: ["Third-Party APIs", "Pendo (Analytics)", "Jira"],
-      image: "🏢",
-      category: "PropTech"
+      arr: "$300K",
+      icon: Zap,
+      gradient: "from-teal-400 to-cyan-500",
+      category: "MarTech"
     },
     {
-      title: "Integrated Time Tracking for Creative Teams",
-      company: "Lytho",
-      description: "Used churn analysis and customer interviews to identify critical feature gap threatening $2M ARR. Led full product lifecycle from discovery to GTM, prioritizing seamless integration over feature richness. Partnered with marketing on launch strategy, resulting in 70% adoption and 15% churn reduction.",
-      results: [
-        "Preserved $2M in ARR by solving key user frustrations",
-        "Cut workflow time by 50%, boosting user satisfaction by 25%",
-        "Slashed customer churn by 15% with 70% feature adoption"
+      title: "AI-Powered Campaign Creation",
+      company: "Nel Marketing",
+      period: "2023 - Present",
+      description: "Improved email campaign creation productivity 60% by deploying Gemini-based, client-trained AI assistants with prompt guardrails and feedback loops.",
+      impact: [
+        "60% productivity improvement",
+        "AI-driven automation",
+        "Reduced manual effort"
       ],
-      technologies: ["Pendo", "Figma", "Miro", "Gainsight"],
-      image: "⏱️",
+      icon: Target,
+      gradient: "from-violet-400 to-fuchsia-500",
+      category: "AI/ML"
+    },
+    {
+      title: "KPI Reporting & Revenue Attribution",
+      company: "Nel Marketing",
+      period: "2023 - Present",
+      description: "Lifted attributed revenue 20% in 6 months across 10 enterprise accounts by building KPI reporting that turned lifecycle metrics into weekly insights.",
+      impact: [
+        "20% revenue lift",
+        "10 enterprise accounts",
+        "Weekly actionable insights"
+      ],
+      icon: TrendingUp,
+      gradient: "from-emerald-400 to-teal-500",
+      category: "MarTech"
+    },
+    {
+      title: "Time-Tracking MVP",
+      company: "Lytho",
+      period: "2022 - 2023",
+      description: "Retained $5M ARR and delivered 100% renewal for at-risk enterprise accounts by shipping a manual time-tracking MVP with 70% adoption in 90 days.",
+      impact: [
+        "$5M ARR retained",
+        "70% user adoption",
+        "100% renewal rate"
+      ],
+      arr: "$5M",
+      icon: DollarSign,
+      gradient: "from-blue-400 to-indigo-500",
       category: "B2B SaaS"
     },
     {
-      title: "Launching a New Renters Insurance Product",
-      company: "ResMan",
-      description: "Identified competitive gap through market analysis and led company's first insurance product from concept to launch. Managed complex stakeholder alignment across legal, compliance, sales, and engineering. Built entire GTM strategy including sales enablement, resulting in $100K MRR and new ancillary revenue stream.",
-      results: [
-        "Generated $100K in new monthly recurring revenue",
-        "Launched ResMan's first insurance product, creating a new revenue stream for both the company and for property managers",
-        "Simplified the insurance sign-up process to be seamless for residents"
+      title: "Unified Suite Experience",
+      company: "Lytho",
+      period: "2022 - 2023",
+      description: "Generated $2.5M ARR in cross-sell by unifying two standalone products into a single suite experience, converting 150 accounts.",
+      impact: [
+        "$2.5M ARR from cross-sell",
+        "150 accounts converted",
+        "Unified product experience"
       ],
-      technologies: ["API Integration", "Jira", "Postman", "Salesforce"],
-      image: "🛡️",
+      arr: "$2.5M",
+      icon: Users,
+      gradient: "from-cyan-400 to-blue-500",
+      category: "B2B SaaS"
+    },
+    {
+      title: "Rich-Text Editor Migration",
+      company: "Lytho",
+      period: "2022 - 2023",
+      description: "Reduced support tickets 80% and avoided $50K per year in licensing costs by implementing an open-source rich-text editor.",
+      impact: [
+        "80% ticket reduction",
+        "$50K annual savings",
+        "Improved user experience"
+      ],
+      icon: Zap,
+      gradient: "from-teal-400 to-green-500",
+      category: "B2B SaaS"
+    },
+    {
+      title: "Credit Builder Integration",
+      company: "ResMan",
+      period: "2021 - 2022",
+      description: "Reached a $1.5M ARR run-rate in 12 months by launching Credit Builder via partner integration and embedding enrollment into the resident experience.",
+      impact: [
+        "$1.5M ARR run-rate",
+        "Partner integration",
+        "Embedded user experience"
+      ],
+      arr: "$1.5M",
+      icon: Building2,
+      gradient: "from-orange-400 to-red-500",
       category: "PropTech"
     },
     {
-      title: "Expanding from Web to Native Mobile",
-      company: "Legal Zoom",
-      description: "Validated mobile opportunity through user research showing high demand for on-the-go access. Led prioritization of web features for mobile-first experience using data-driven frameworks. Coordinated dual-platform launch while managing App Store optimization strategy, driving 28% MAU growth and expanding addressable market.",
-      results: [
-        "Drove a 28% surge in Monthly Active Users (MAUs)",
-        "Increased new app downloads by 30% through App Store optimization and push notification campaigns",
-        "Expanded platform availability by successfully launching on both iOS and Android"
-      ],
-      technologies: ["Figma", "Google Analytics", "iOS", "Android"],
-      image: "📱",
-      category: "Mobile/Legal Tech"
-    }
-  ];
-
-  const aiProjects = [
-    {
-      title: "AI Hospitality Agent",
-      status: "Prototyping",
-      description: "Building an AI-powered guest concierge for short-term rentals designed to boost host ratings. The agent uses conversational AI to resolve guest issues 24/7 and analyzes feedback to provide hosts with data-driven property recommendations.",
+      title: "White-Label Renters Insurance",
+      company: "ResMan",
+      period: "2021 - 2022",
+      description: "Delivered $1M ARR in year one by launching white-label renters insurance and integrating purchase into the leasing flow.",
       impact: [
-        "Aiming for a 30% increase in positive host ratings",
-        "Targeting a 50% reduction in guest issue response time",
-        "Designed to automate over 90% of routine guest inquiries"
+        "$1M ARR year one",
+        "Seamless leasing integration",
+        "New revenue stream"
       ],
-      technologies: ["OpenAI", "DeepSeek", "Twilio", "API", "Firebase Studio"],
-      icon: Bot,
-      color: "from-teal-400 to-cyan-500",
-      demo: false
+      arr: "$1M",
+      icon: Building2,
+      gradient: "from-amber-400 to-orange-500",
+      category: "PropTech"
     },
     {
-      title: "Generative AI for Creative Briefs",
-      status: "Concept Proposal",
-      description: "Championed a concept to integrate OpenAI's generative AI into our newly developed rich text editor. The feature was designed to allow users to autogenerate robust campaign directions and descriptions from simple prompts, dramatically reducing the manual effort required to create detailed project briefs and aligning our product with emerging AI trends in the industry.",
+      title: "Okta 2FA for Enterprise Security",
+      company: "LegalZoom",
+      period: "2020 - 2021",
+      description: "Closed $300K ARR in 6 months by shipping Okta 2FA that unblocked enterprise security requirements.",
       impact: [
-        "Projected a 40% reduction in time spent writing campaign briefs",
-        "Designed to drive user adoption of the new rich text editor feature",
-        "Aimed to establish competitive parity with similar AI features in tools like Asana and ClickUp"
+        "$300K ARR in 6 months",
+        "Unblocked enterprise deals",
+        "Enhanced security"
       ],
-      technologies: ["OpenAI API", "Generative AI"],
-      icon: Zap,
-      color: "from-purple-400 to-pink-500",
-      demo: false
+      arr: "$300K",
+      icon: Scale,
+      gradient: "from-purple-400 to-pink-500",
+      category: "LegalTech"
+    },
+    {
+      title: "Checkout Funnel Optimization",
+      company: "LegalZoom",
+      period: "2020 - 2021",
+      description: "Increased checkout completion from 20% to 40% in 30 days, adding $120K ARR, by fixing funnel drop-off with feature flags.",
+      impact: [
+        "20% to 40% completion",
+        "$120K ARR added",
+        "30-day turnaround"
+      ],
+      arr: "$120K",
+      icon: TrendingUp,
+      gradient: "from-rose-400 to-red-500",
+      category: "LegalTech"
+    },
+    {
+      title: "iOS Mobile App Launch",
+      company: "LegalZoom",
+      period: "2020 - 2021",
+      description: "Launched an iOS MVP, driving 6,000 downloads in 6 months and reaching 700 weekly active users by prioritizing high-value mobile workflows.",
+      impact: [
+        "6,000 downloads",
+        "700 weekly active users",
+        "Mobile-first experience"
+      ],
+      icon: Smartphone,
+      gradient: "from-indigo-400 to-purple-500",
+      category: "Mobile"
     }
   ];
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'In Production': return 'bg-teal-100 text-teal-800';
-      case 'Beta Testing': return 'bg-cyan-100 text-cyan-800';
-      case 'Development': return 'bg-yellow-100 text-yellow-800';
-      case 'Concept Proposal': return 'bg-blue-100 text-blue-800';
-      case 'Prototype': return 'bg-purple-100 text-purple-800';
-      case 'Prototyping': return 'bg-purple-100 text-purple-800';
-      default: return 'bg-gray-100 text-gray-800';
-    }
-  };
+  const categories = ['all', 'B2B SaaS', 'PropTech', 'LegalTech', 'MarTech', 'AI/ML', 'Mobile'];
 
-  const getImpactTitle = (status: string) => {
-    switch (status) {
-      case 'Prototyping': return 'Projected Impact & Goals';
-      case 'Concept Proposal': return 'Potential Impact & Business Case';
-      default: return 'Impact & Results';
-    }
-  };
+  const filteredProjects = activeFilter === 'all'
+    ? projects
+    : projects.filter(p => p.category === activeFilter);
+
+  useEffect(() => {
+    const observers = cardRefs.current.map((card, index) => {
+      if (!card) return null;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setVisibleCards(prev => new Set([...prev, index]));
+          }
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(card);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach(observer => observer?.disconnect());
+    };
+  }, [filteredProjects]);
+
+  const totalARR = projects
+    .filter(p => p.arr)
+    .reduce((sum, p) => sum + parseFloat(p.arr!.replace(/[^0-9.]/g, '')), 0);
 
   return (
-    <section id="portfolio" className="py-20 bg-gradient-to-br from-white to-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">Product Portfolio</h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-4">
-            From identifying market opportunities to shipping revenue-generating products,
-            these case studies demonstrate my end-to-end product management capabilities.
-          </p>
-          <p className="text-lg text-slate-500 max-w-3xl mx-auto leading-relaxed">
-            Each project showcases strategic decision-making, cross-functional leadership,
-            and measurable business impact across PropTech, LegalTech, and SaaS industries.
-          </p>
-        </div>
+    <section id="portfolio" className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width=%2260%22%20height=%2260%22%20viewBox=%220%200%2060%2060%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg%20fill=%22none%22%20fill-rule=%22evenodd%22%3E%3Cg%20fill=%22%2306B6D4%22%20fill-opacity=%220.03%22%3E%3Ccircle%20cx=%2230%22%20cy=%2230%22%20r=%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60"></div>
 
-        {/* Tab Navigation */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-white/80 backdrop-blur-sm rounded-lg p-2 shadow-lg border border-gray-200 flex flex-col sm:flex-row gap-2">
-            <button
-              onClick={() => setActiveTab('traditional')}
-              className={`px-4 sm:px-6 py-3 rounded-md font-semibold transition-all duration-300 ${
-                activeTab === 'traditional'
-                  ? 'bg-gradient-to-r from-teal-500 to-cyan-600 text-white shadow-lg'
-                  : 'text-slate-600 hover:text-slate-800'
-              }`}
-            >
-              Traditional Projects
-            </button>
-            <button
-              onClick={() => setActiveTab('ai')}
-              className={`px-4 sm:px-6 py-3 rounded-md font-semibold transition-all duration-300 ${
-                activeTab === 'ai'
-                  ? 'bg-gradient-to-r from-teal-500 to-cyan-600 text-white shadow-lg'
-                  : 'text-slate-600 hover:text-slate-800'
-              }`}
-            >
-              AI/ML Projects
-            </button>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
+            Product Portfolio
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
+            11 revenue-generating products shipped across PropTech, LegalTech, MarTech, and B2B SaaS
+          </p>
+
+          {/* Impact Summary */}
+          <div className="flex flex-wrap justify-center gap-8 mb-12">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-teal-600 mb-2">
+                ${totalARR.toFixed(1)}M+
+              </div>
+              <div className="text-sm text-slate-600 font-medium">Total ARR Impact</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-teal-600 mb-2">
+                {projects.length}
+              </div>
+              <div className="text-sm text-slate-600 font-medium">Products Shipped</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-teal-600 mb-2">
+                4
+              </div>
+              <div className="text-sm text-slate-600 font-medium">Companies</div>
+            </div>
           </div>
         </div>
 
-        {/* Traditional Projects */}
-        {activeTab === 'traditional' && (
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
-            {traditionalProjects.map((project, index) => (
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveFilter(category)}
+              className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 ${
+                activeFilter === category
+                  ? 'bg-gradient-to-r from-teal-500 to-cyan-600 text-white shadow-lg scale-105'
+                  : 'bg-white text-slate-600 hover:text-slate-800 hover:shadow-md border border-gray-200'
+              }`}
+            >
+              {category === 'all' ? 'All Projects' : category}
+            </button>
+          ))}
+        </div>
+
+        {/* Project Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {filteredProjects.map((project, index) => {
+            const Icon = project.icon;
+            const isVisible = visibleCards.has(index);
+
+            return (
               <div
                 key={index}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-200"
+                ref={el => cardRefs.current[index] = el}
+                className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-gray-200 transform ${
+                  isVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-8'
+                }`}
+                style={{
+                  transitionDelay: isVisible ? `${(index % 3) * 100}ms` : '0ms'
+                }}
               >
-                {/* Project Header */}
-                <div className="bg-gradient-to-r from-teal-500 to-cyan-600 p-4 sm:p-6 text-white">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="text-3xl sm:text-4xl mb-2">{project.image}</div>
-                    <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+                {/* Card Header */}
+                <div className={`bg-gradient-to-r ${project.gradient} p-6 text-white relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                  <div className="relative z-10">
+                    <Icon className="w-10 h-10 mb-4" />
+                    <h3 className="text-xl font-bold mb-2 leading-tight">
+                      {project.title}
+                    </h3>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm opacity-90">{project.company}</span>
+                      {project.arr && (
+                        <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-bold">
+                          {project.arr} ARR
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div className="p-6">
+                  <p className="text-slate-600 mb-4 leading-relaxed text-sm">
+                    {project.description}
+                  </p>
+
+                  {/* Impact List */}
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-slate-800 mb-3 text-sm flex items-center">
+                      <TrendingUp className="w-4 h-4 mr-2 text-teal-600" />
+                      Key Impact
+                    </h4>
+                    <ul className="space-y-2">
+                      {project.impact.map((item, idx) => (
+                        <li key={idx} className="flex items-start space-x-2 text-sm">
+                          <div className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                          <span className="text-slate-600">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Category Badge */}
+                  <div className="pt-4 border-t border-gray-100">
+                    <span className="inline-block bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
                       {project.category}
                     </span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-2">{project.title}</h3>
-                  <div className="flex items-center space-x-4 text-teal-100">
-                    <span className="text-sm sm:text-base">at {project.company}</span>
-                  </div>
-                </div>
-
-                {/* Project Content */}
-                <div className="p-4 sm:p-6">
-                  <p className="text-sm sm:text-base text-slate-600 mb-6 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Key Results */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-slate-800 mb-3 flex items-center">
-                      <TrendingUp className="w-5 h-5 mr-2 text-teal-600" />
-                      Key Results
-                    </h4>
-                    <ul className="space-y-2">
-                      {project.results.map((result, idx) => (
-                        <li key={idx} className="flex items-start space-x-2">
-                          <div className="w-2 h-2 bg-teal-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-slate-600">{result}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Technologies */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-slate-800 mb-3">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-gray-300"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Action Button */}
-                  <button 
-                    onClick={() => handleViewCaseStudy(project.title)}
-                    className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white py-3 px-4 sm:px-6 rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-700 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:scale-105 shadow-lg text-sm sm:text-base"
-                  >
-                    <span>View Case Study</span>
-                    <ExternalLink size={18} />
-                  </button>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
+            );
+          })}
+        </div>
 
-        {/* AI Projects */}
-        {activeTab === 'ai' && (
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
-            {aiProjects.map((project, index) => (
-              <div
-                key={index}
-                className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
-              >
-                {/* Project Header */}
-                <div className={`bg-gradient-to-r ${project.color} p-4 sm:p-6 text-white`}>
-                  <div className="flex items-start justify-between mb-4">
-                    <project.icon className="w-8 h-8 sm:w-10 sm:h-10" />
-                    <span className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium ${getStatusColor(project.status)} text-slate-800 bg-white`}>
-                      {project.status}
-                    </span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-2">{project.title}</h3>
-                </div>
-
-                {/* Project Content */}
-                <div className="p-4 sm:p-6">
-                  <p className="text-sm sm:text-base text-slate-600 mb-6 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Impact Metrics */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-slate-800 mb-3 flex items-center">
-                      <Brain className="w-5 h-5 mr-2 text-teal-600" />
-                      {getImpactTitle(project.status)}
-                    </h4>
-                    <ul className="space-y-2">
-                      {project.impact.map((result, idx) => (
-                        <li key={idx} className="flex items-start space-x-2">
-                          <div className="w-2 h-2 bg-teal-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-slate-600">{result}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Tech Stack */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-slate-800 mb-3">Tech Stack</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-gray-300"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Action Button */}
-                  <button 
-                    onClick={() => handleViewCaseStudy(project.title)}
-                    className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-md text-sm sm:text-base"
-                  >
-                    <span>View Case Study</span>
-                    <ExternalLink size={18} />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <p className="text-slate-600 mb-6">
+            Want to learn more about my product approach?
+          </p>
+          <a
+            href="#contact"
+            className="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Get in Touch
+          </a>
+        </div>
       </div>
     </section>
   );
