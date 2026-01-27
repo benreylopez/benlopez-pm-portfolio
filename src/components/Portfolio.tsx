@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { TrendingUp, DollarSign, Users, Zap, Building2, Scale, Smartphone, Target } from 'lucide-react';
+import { TrendingUp, DollarSign, Users, Zap, Building2, Scale, Smartphone, Target, ExternalLink } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -11,6 +11,7 @@ interface Project {
   icon: any;
   gradient: string;
   category: string;
+  proofLink?: string;
 }
 
 const Portfolio = () => {
@@ -164,7 +165,8 @@ const Portfolio = () => {
       arr: "$300K",
       icon: Scale,
       gradient: "from-violet-400 to-purple-500",
-      category: "LegalTech"
+      category: "LegalTech",
+      proofLink: "https://authenticator.2stable.com/services/earthclassmail.com/"
     },
     {
       title: "Checkout Funnel Optimization",
@@ -353,6 +355,21 @@ const Portfolio = () => {
                       ))}
                     </ul>
                   </div>
+
+                  {/* Proof Link Button */}
+                  {project.proofLink && (
+                    <div className="mb-4">
+                      <a
+                        href={project.proofLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 border border-blue-500 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-50 transition-colors duration-200"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        <span>See Live Example</span>
+                      </a>
+                    </div>
+                  )}
 
                   {/* Category Badge */}
                   <div className="pt-4 border-t border-gray-100">
