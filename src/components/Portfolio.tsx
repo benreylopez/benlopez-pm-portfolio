@@ -122,7 +122,8 @@ const Portfolio = () => {
       ],
       icon: Zap,
       gradient: "from-lime-400 to-emerald-500",
-      category: "B2B SaaS"
+      category: "B2B SaaS",
+      proofLink: "https://support.lytho.com/support/solutions/articles/151000189771-collaborating-workflow-#Rich-Text-Editing"
     },
     {
       title: "Credit Builder Integration",
