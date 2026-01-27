@@ -107,7 +107,8 @@ const Portfolio = () => {
       arr: "$2.5M",
       icon: Users,
       gradient: "from-cyan-400 to-sky-500",
-      category: "B2B SaaS"
+      category: "B2B SaaS",
+      proofLink: "https://support.lytho.com/support/solutions/articles/151000190088-navigating-between-dam-workflow"
     },
     {
       title: "Rich-Text Editor Migration",
