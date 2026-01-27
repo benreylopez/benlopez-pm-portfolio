@@ -91,7 +91,8 @@ const Portfolio = () => {
       arr: "$5M",
       icon: DollarSign,
       gradient: "from-blue-400 to-sky-500",
-      category: "B2B SaaS"
+      category: "B2B SaaS",
+      proofLink: "https://support.lytho.com/support/solutions/articles/151000189899-timesheets-workflow-"
     },
     {
       title: "Unified Suite Experience",
