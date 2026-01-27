@@ -195,7 +195,8 @@ const Portfolio = () => {
       ],
       icon: Smartphone,
       gradient: "from-blue-400 to-indigo-500",
-      category: "Mobile"
+      category: "Mobile",
+      proofLink: "https://apps.apple.com/us/app/earth-class-mail-mailbox-scan/id1484077329"
     }
   ];
 
